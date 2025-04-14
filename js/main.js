@@ -1,0 +1,1 @@
+$(document).ready((function(){function i(){$(".lazy-bg").each((function(){let i=$(this);if(i.is(":visible")&&i.offset().top<$(window).scrollTop()+$(window).height()){let o=i.data("bg");o&&(i.css({"background-image":`url(${o})`,opacity:0}).animate({opacity:1},400),i.removeClass("lazy-bg"))}}))}i(),$(window).on("scroll resize",i)}));

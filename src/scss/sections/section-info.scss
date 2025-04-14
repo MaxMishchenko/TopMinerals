@@ -1,0 +1,22 @@
+.section {
+    &__info {
+        &-text {
+            max-width: 458px;
+        }
+
+        &-img {
+            background-repeat: no-repeat;
+            background-position: top;
+            background-size: cover;
+            width: 488px;
+            height: 365px;
+            border-radius: 30px;
+        }
+
+        &-item {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+        }
+    }
+}

@@ -1,0 +1,21 @@
+* {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-appearance: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-smooth: always;
+}
+
+body {
+    background-color: var(--color--pearl);
+}
+
+main {
+    max-width: 1440px;
+    padding: 120px;
+    gap: 140px;
+}
+
+.btn {
+    max-width: 287px;
+}
