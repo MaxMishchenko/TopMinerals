@@ -5,6 +5,10 @@
 @import 'global/colors';
 @import 'global/global';
 
-@import 'sections/section-hero';
-@import 'sections/section-composition';
-@import 'sections/section-info';
+@import 'base/header';
+@import 'base/footer';
+
+@import 'sections/main/section-hero';
+@import 'sections/main/section-partner';
+@import 'sections/main/section-products';
+@import 'sections/main/section-contact';

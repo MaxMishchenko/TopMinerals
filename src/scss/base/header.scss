@@ -1,0 +1,97 @@
+.header {
+    width: calc(100% - 32px);
+    top: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 32px;
+    z-index: 999;
+    pointer-events: auto;
+    transition: background-color .4s ease-in-out;
+
+    &.floating {
+        background-color: #0e0e0eab;
+        backdrop-filter: blur(24px);
+    }
+
+    &__burger-wrapper {
+        transition: transform 400ms;
+        background-color: #B4D31F;
+        border-radius: 50%;
+        width: 32px;
+        height: 32px;
+
+        .header__burger-line {
+            transition: all .4s;
+            stroke-width: 8;
+        }
+
+        #line-top {
+            stroke-dasharray: 25 139;
+            stroke-dashoffset: -25;
+        }
+
+        #line-bottom {
+            stroke-dasharray: 25 139;
+            stroke-dashoffset: -8;
+        }
+
+        #line-middle {
+            transform-origin: 38% 20%;
+        }
+
+        &.active {
+            transform: rotate(0.375turn);
+
+            #line-top {
+                stroke-dashoffset: -87;
+            }
+
+            #line-bottom {
+                stroke-dashoffset: -64;
+            }
+
+            #line-middle {
+                transform: rotate(90deg);
+            }
+        }
+    }
+
+    &__nav {
+        height: 513px;
+        top: 0;
+        left: 0;
+        right: 0;
+        padding: 131px 22px 22px 22px;
+        z-index: 998;
+        transform: translateY(-100%);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity .8s ease, transform .6s ease;
+
+        &.active {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+
+        &-submenu {
+            max-height: 0;
+            opacity: 0;
+            transition: max-height 0.4s ease, opacity 0.4s ease;
+
+            &.visible {
+                max-height: 95px;
+                opacity: 1;
+                transition: max-height 0.4s ease, opacity 0.4s ease;
+            }
+        }
+
+        &-chevron {
+            transition: .4s ease;
+
+            &.active {
+                transform: rotate(180deg);
+            }
+        }
+    }
+}

@@ -1,0 +1,27 @@
+.footer {
+    width: calc(100% - 32px);
+    padding-bottom: 16px;
+    overflow: visible;
+
+    &::before {
+        content: '';
+        background-image: url('../img/global/animation.svg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        position: absolute;
+        left: -35px;
+        top: -120px;
+        width: 200px;
+        height: 129px;
+        z-index: -1;
+        opacity: .4;
+        overflow-y: visible;
+        transform: scaleX(-1) rotate(25deg);
+        pointer-events: none;
+    }
+
+    &__wrapper {
+        border-radius: 20px;
+    }
+}

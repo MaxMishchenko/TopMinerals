@@ -37,6 +37,15 @@
 @font-face {
     font-family: Ubuntu Sans;
     font-display: swap;
+    src: url(../fonts/UbuntuSansMedium.woff2) format('woff2');
+    font-weight: 500;
+    font-style: normal;
+    font-optical-sizing: auto;
+}
+
+@font-face {
+    font-family: Ubuntu Sans;
+    font-display: swap;
     src: url(../fonts/UbuntuSansBold.woff2) format('woff2');
     font-weight: 700;
     font-style: normal;

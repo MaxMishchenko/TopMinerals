@@ -20,30 +20,106 @@
     &--column {
         flex-direction: column;
     }
+
+    &--no-shrink {
+        flex-shrink: 0;
+    }
+
+    &--wrap {
+        flex-wrap: wrap;
+    }
+}
+
+.grid {
+    display: grid;
+
+    &--align-end {
+        align-self: end;
+    }
 }
 
 .p {
     &t {
-        &--15 {
-            padding-top: 15px;
+        &--6 {
+            padding-top: 6px;
+        }
+
+        &--10 {
+            padding-top: 10px;
+        }
+
+        &--16 {
+            padding-top: 16px;
+        }
+
+        &--24 {
+            padding-top: 24px;
+        }
+
+        &--28 {
+            padding-top: 28px;
         }
     }
 
     &b {
-        &--15 {
-            padding-bottom: 15px;
+        &--6 {
+            padding-bottom: 6px;
+        }
+
+        &--10 {
+            padding-bottom: 10px;
+        }
+
+        &--16 {
+            padding-bottom: 16px;
+        }
+
+        &--24 {
+            padding-bottom: 24px;
         }
     }
 
     &l {
-        &--20 {
-            padding-left: 20px;
+        &--10 {
+            padding-left: 10px;
+        }
+
+        &--16 {
+            padding-left: 16px;
+        }
+
+        &--24 {
+            padding-left: 24px;
+        }
+
+        &--28 {
+            padding-left: 28px;
+        }
+
+        &--32 {
+            padding-left: 32px;
         }
     }
 
     &r {
-        &--20 {
-            padding-right: 20px;
+        &--10 {
+            padding-right: 10px;
+        }
+
+        &--16 {
+            padding-right: 16px;
+        }
+
+        &--24 {
+            padding-right: 24px;
+        }
+
+        &--28 {
+            padding-right: 28px;
+        }
+
+        &--32 {
+            padding-right: 32px;
         }
     }
 }
@@ -59,43 +135,61 @@
     }
 
     &r {
-        &--5 {
-            margin-right: 5px;
-        }
 
-        &--20 {
-            margin-right: 20px;
-        }
     }
 
     &b {
-        &--15 {
-            margin-bottom: 15px;
+        &--16 {
+            margin-bottom: 16px;
         }
 
-        &--20 {
-            margin-bottom: 20px;
-        }
-
-        &--30 {
-            margin-bottom: 30px;
+        &--32 {
+            margin-bottom: 32px;
         }
     }
 }
 
 .gap {
-    &--15 {
-        gap: 15px;
+    &--6 {
+        gap: 6px;
+    }
+
+    &--8 {
+        gap: 8px;
+    }
+
+    &--10 {
+        gap: 10px;
+    }
+
+    &--16 {
+        gap: 16px;
+    }
+
+    &--22 {
+        gap: 22px;
     }
 
     &--24 {
         gap: 24px;
+    }
+
+    &--32 {
+        gap: 32px;
+    }
+
+    &--64 {
+        gap: 64px;
     }
 }
 
 .font {
     &--normal {
         font-weight: 400;
+    }
+
+    &--medium {
+        font-weight: 500;
     }
 
     &--semi {
@@ -115,28 +209,28 @@
     }
 
     &--size {
-        &-14 {
-            @include font(14);
+        &-10 {
+            @include font(10);
+        }
+
+        &-12 {
+            @include font(12);
         }
 
         &-16 {
             @include font(16);
         }
 
-        &-20 {
-            @include font(20);
+        &-18 {
+            @include font(18);
         }
 
-        &-24 {
-            @include font(24);
+        &-28 {
+            @include font(28);
         }
 
         &-32 {
             @include font(32);
-        }
-
-        &-56 {
-            @include font(56);
         }
     }
 }
@@ -145,32 +239,70 @@
     &--uppercase {
         text-transform: uppercase;
     }
+
+    &--center {
+        text-align: center;
+    }
 }
 
 .bg {
-    &--lime {
-        background-color: var(--color--lime);
+    &--black {
+        background-color: var(--color--black);
+    }
+
+    &--grey {
+        background-color: var(--color--grey);
+    }
+
+    &--green {
+        background-color: var(--color--green);
     }
 
     &--white {
         background-color: var(--color--white);
     }
-
-    &--black {
-        background-color: var(--color--black);
-    }
 }
 
 .color {
-    &--black {
-        color: var(--color--black);
-    }
-
     &--white {
         color: var(--color--white);
     }
 
-    &--grey {
-        color: var(--color--grey);
+    &--light-grey {
+        color: var(--color--light-grey);
     }
+
+    &--black {
+        color: var(--color--black);
+    }
+
+    &--green {
+        color: var(--color--green);
+    }
+}
+
+.position {
+    &--fixed {
+        position: fixed;
+    }
+
+    &--absolute {
+        position: absolute;
+    }
+
+    &--relative {
+        position: relative;
+    }
+}
+
+.btn {
+    border-radius: 37px;
+
+    &--transparent {
+        border: 1px solid var(--color--white);
+    }
+}
+
+.hidden {
+    display: none;
 }

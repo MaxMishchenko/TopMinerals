@@ -1,0 +1,132 @@
+.section {
+    &__products {
+        overflow-y: visible;
+        overflow-x: clip;
+        margin-right: -16px;
+        padding-right: 16px;
+
+        &::before {
+            content: '';
+            background-image: url('../img/global/animation.svg');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+            position: absolute;
+            right: -35px;
+            top: -60px;
+            width: 200px;
+            height: 129px;
+            z-index: -1;
+            opacity: .4;
+            transform: rotate(45deg);
+            pointer-events: none;
+        }
+
+        &-container {
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+
+            &::-webkit-scrollbar {
+                display: none;
+            }
+        }
+
+        &-item {
+            scroll-snap-align: start;
+            scroll-snap-stop: always;
+            user-select: none;
+            border-radius: 40px;
+            border: 1px solid var(--color--white);
+            background-color: transparent;
+            transition: background-color .4s ease, color .4s ease, border .4s ease;
+
+            &.active {
+                background-color: var(--color--green);
+                color: var(--color--black);
+                border: 1px solid transparent;
+            }
+        }
+
+        &-carousel {
+            &-wrapper {
+                width: 76.27vw;
+                overflow: hidden;
+            }
+
+            &-track {
+                transition: transform 0.5s ease;
+                will-change: transform;
+            }
+
+            &-slide {
+                flex: 0 0 100%;
+                border-radius: 18px;
+
+                &-img {
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    background-size: contain;
+                    width: 60.8vw;
+                    height: 43vw;
+                    border-radius: 20px;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                }
+            }
+
+            &-nav {
+                top: 50%;
+                border: none;
+                z-index: 2;
+                height: 20px;
+                width: 20px;
+                border-radius: 50%;
+                background-repeat: no-repeat;
+                background-size: 6px 9px;
+                background-image: url('../img/icons/icon_slider_btn.svg');
+
+                &--prev {
+                    left: -28px;
+                    transform: translateY(-50%);
+                    background-position: 6.2px 5.4px;
+                }
+
+                &--next {
+                    right: -28px;
+                    transform: translateY(-50%) rotate(180deg);
+                    background-position: 6.2px 5.8px;
+                }
+            }
+
+            &-dots {
+                button {
+                    width: 12px;
+                    height: 12px;
+                    border-radius: 50%;
+                    background-color: var(--color--light-grey);
+                    border: none;
+
+                    &.active {
+                        background: var(--color--white);
+                    }
+                }
+            }
+
+            &-bg {
+                height: 48.8vw;
+                width: 48.8vw;
+                border-radius: 50%;
+            }
+
+            &-link {
+                width: 32px;
+                height: 32px;
+                border-radius: 50%;
+            }
+        }
+    }
+}
