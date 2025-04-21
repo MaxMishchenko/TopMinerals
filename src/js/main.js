@@ -101,11 +101,15 @@ $(document).ready(function () {
 
         $dotsContainer.empty();
         $slides.each((i) => {
-            const $dot = $('<button></button>').toggleClass('active', i === currentIndex);
+            const $dot = $('<button type="button"></button>')
+                .attr('aria-label', 'Перемкнути на слайд ' + (i + 1))
+                .toggleClass('active', i === currentIndex);
+
             $dot.on('click', () => {
                 currentIndex = i;
                 initSlider();
             });
+
             $dotsContainer.append($dot);
         });
     }
