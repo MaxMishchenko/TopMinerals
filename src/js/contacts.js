@@ -310,11 +310,9 @@ $(document).ready(function () {
         const $text = $(this).find('[data-text]');
         const isOpen = $icon.hasClass('open');
 
-        // Закриваємо всі
         $('.contacts__faq-icon').removeClass('open');
         $('[data-text]').stop(true, true).slideUp(200);
 
-        // Якщо елемент був закритий — відкриваємо його
         if (!isOpen) {
             $icon.addClass('open');
             $text.stop(true, true).slideDown(200);
