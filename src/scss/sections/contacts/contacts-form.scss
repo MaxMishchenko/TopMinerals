@@ -1,0 +1,187 @@
+.contacts {
+    &__form {
+        border-radius: 20px;
+
+        &-field {
+            border-radius: 20px;
+            border: 1px solid transparent;
+            transition: border .4s ease-in-out;
+
+            &::placeholder {
+                color: var(--color--light-grey);
+            }
+
+            &:active,
+            &:focus,
+            &:focus-visible {
+                border: 1px solid var(--color--green);
+                background-color: var(--color--pale-grey);
+            }
+
+            &-error {
+                display: none;
+            }
+
+            &.error {
+                border: 1px solid var(--color--red);
+                color: var(--color--red);
+                animation: shake .3s;
+            }
+        }
+
+        &-msg {
+            height: 107px;
+            border-radius: 20px;
+            border: 1px solid transparent;
+            transition: border .4s ease-in-out;
+            resize: none;
+            scrollbar-width: none;
+
+            &:active,
+            &:focus,
+            &:focus-visible {
+                border: 1px solid var(--color--green);
+                background-color: var(--color--pale-grey);
+            }
+        }
+
+        &-checkbox {
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+            border: 1px solid var(--color--green);
+            transition: background-color .1s ease-in-out, border .4s ease-in-out;
+
+            &-icon {
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                opacity: 0;
+                transition: opacity .1s ease-in-out;
+
+                &.checked {
+                    opacity: 1;
+                }
+            }
+
+            &.checked {
+                background-color: rgba(180, 211, 31, .10);
+            }
+
+            &.error {
+                border: 1px solid var(--color--red);
+            }
+        }
+
+        &-select {
+            &-img {
+                top: 50%;
+                transform: translateY(-50%);
+                right: 24px;
+                transition: transform .4s ease;
+            }
+
+            &-field {
+                border: 1px solid transparent;
+                transition: border .4s ease-in-out;
+                border-radius: 20px;
+
+                &.active {
+                    .contacts__form-select-img {
+                        transform: translateY(-50%) rotate(180deg);
+                    }
+                }
+
+                &:active,
+                &:focus,
+                &:focus-visible {
+                    border: 1px solid var(--color--green);
+                    background-color: var(--color--pale-grey);
+                }
+            }
+
+            &-options {
+                width: 100%;
+                top: 5px;
+                left: 0;
+                border-radius: 20px;
+                max-height: 160px;
+                overflow-y: auto;
+                scrollbar-width: none;
+                opacity: 0;
+                visibility: hidden;
+                pointer-events: none;
+                z-index: -1;
+                transition: opacity .4s ease-in-out;
+
+                &.open {
+                    opacity: 1;
+                    z-index: 3;
+                    pointer-events: auto;
+                    visibility: visible;
+                }
+
+                &::-webkit-scrollbar {
+                    display: none;
+                }
+
+                .custom--option {
+                    &.selected {
+                        font-weight: 600;
+                    }
+                }
+            }
+
+            &-wrapper {
+                opacity: 0;
+                visibility: hidden;
+                pointer-events: none;
+                z-index: -1;
+                transition: opacity .4s ease-in-out;
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    top: 5px;
+                    left: 0;
+                    right: 0;
+                    background: linear-gradient(180deg, #f5f4f4, #f5f4f400);
+                    height: 24px;
+                    z-index: 22;
+                    border-radius: 20px 20px 0 0;
+                }
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    bottom: -165px;
+                    left: 0;
+                    right: 0;
+                    background: linear-gradient(0deg, #f5f4f4, transparent);
+                    height: 24px;
+                    z-index: 22;
+                    border-radius: 0 0 20px 20px;
+                }
+
+                &.open {
+                    opacity: 1;
+                    z-index: 4;
+                    pointer-events: auto;
+                    visibility: visible;
+                }
+            }
+        }
+
+        &-success {
+            height: 613px;
+        }
+    }
+}
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-4px); }
+    50% { transform: translateX(4px); }
+    75% { transform: translateX(-4px); }
+    100% { transform: translateX(0); }
+}

@@ -5,10 +5,18 @@
 @import 'global/colors';
 @import 'global/global';
 
+// BASE
 @import 'base/header';
 @import 'base/footer';
 
-@import 'sections/main/section-hero';
-@import 'sections/main/section-partner';
-@import 'sections/main/section-products';
-@import 'sections/main/section-contact';
+// MAIN PAGE
+@import 'sections/main/main-hero';
+@import 'sections/main/main-partner';
+@import 'sections/main/main-products';
+@import 'sections/main/main-contact';
+
+// CONTACTS PAGE
+@import 'sections/contacts/contacts-contact';
+@import 'sections/contacts/contacts-form';
+@import 'sections/contacts/contacts-location';
+@import 'sections/contacts/contacts-faq';

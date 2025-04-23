@@ -1,0 +1,50 @@
+.contacts {
+    &__faq {
+        overflow: hidden;
+        margin-right: -16px;
+        padding-right: 16px;
+
+        &::before {
+            content: '';
+            background-image: url(../img/global/animation.svg);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+            position: absolute;
+            right: 24px;
+            top: 160px;
+            width: 200px;
+            height: 129px;
+            z-index: -1;
+            opacity: .4;
+            transform: rotate(24deg);
+            pointer-events: none;
+        }
+
+        &-item {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+        }
+
+        &-img {
+            transition: transform .4s ease;
+        }
+
+        &-icon {
+            min-width: 30px;
+            min-height: 30px;
+            border-radius: 50%;
+
+            &.open {
+                .contacts__faq-img {
+                    transform: rotate(180deg);
+                }
+            }
+        }
+
+        &-list {
+            border-radius: 20px;
+        }
+    }
+}
