@@ -302,11 +302,23 @@ $(document).ready(function () {
         }
     });
 
-    // ==========================
+    // ============
     // FAQ акордеон
-    // ==========================
+    // ============
     $('.contacts__faq-list').on('click', function () {
-        $(this).find('.contacts__faq-icon').toggleClass('open');
-        $(this).find('[data-text]').stop(true, true).slideToggle(200);
+        const $icon = $(this).find('.contacts__faq-icon');
+        const $text = $(this).find('[data-text]');
+        const isOpen = $icon.hasClass('open');
+
+        // Закриваємо всі
+        $('.contacts__faq-icon').removeClass('open');
+        $('[data-text]').stop(true, true).slideUp(200);
+
+        // Якщо елемент був закритий — відкриваємо його
+        if (!isOpen) {
+            $icon.addClass('open');
+            $text.stop(true, true).slideDown(200);
+        }
     });
+
 });
