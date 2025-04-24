@@ -1,0 +1,1 @@
+$(document).ready((function(){$(".about__products-list").on("click",(function(){const t=$(this).find(".about__products-icon"),o=$(this).find("[data-text]"),s=t.hasClass("open");$(".about__products-icon").removeClass("open"),$("[data-text]").stop(!0,!0).slideUp(200),s||(t.addClass("open"),o.stop(!0,!0).slideDown(200))}))}));

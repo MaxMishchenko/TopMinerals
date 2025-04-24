@@ -1,0 +1,28 @@
+.about {
+    &__products {
+        &-list {
+            border-radius: 20px;
+        }
+
+        &-icon {
+            min-width: 30px;
+            min-height: 30px;
+            border-radius: 50%;
+
+            &.open {
+                .about__products-img {
+                    transform: rotate(180deg);
+                }
+            }
+        }
+
+        &-link {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            right: 0;
+            bottom: 0;
+            z-index: 2;
+        }
+    }
+}

@@ -9,6 +9,10 @@
         align-items: center;
     }
 
+    &--align-end {
+        align-items: end;
+    }
+
     &--justify-between {
         justify-content: space-between;
     }
@@ -151,7 +155,9 @@
     }
 
     &r {
-
+        &--16 {
+            margin-right: 16px;
+        }
     }
 
     &b {
@@ -262,6 +268,10 @@
 
     &--center {
         text-align: center;
+    }
+
+    &--break {
+        word-break: break-word;
     }
 }
 

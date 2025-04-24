@@ -318,5 +318,4 @@ $(document).ready(function () {
             $text.stop(true, true).slideDown(200);
         }
     });
-
 });
