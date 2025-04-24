@@ -14,6 +14,9 @@ $(document).ready(function () {
     const $form = $('#contact-form');
     const $submitButton = $('#submit');
     const defaultPrefix = '+380 ';
+    const $faqItems = $('.contacts__faq-list');
+    const $allIcons = $('.contacts__faq-icon');
+    const $allTexts = $('[data-text]');
 
     // ===================
     // Функції для селекту
@@ -305,17 +308,31 @@ $(document).ready(function () {
     // ============
     // FAQ акордеон
     // ============
-    $('.contacts__faq-list').on('click', function () {
-        const $icon = $(this).find('.contacts__faq-icon');
-        const $text = $(this).find('[data-text]');
-        const isOpen = $icon.hasClass('open');
+    $faqItems.on('click', function () {
+        const $currentItem = $(this);
+        const $currentIcon = $currentItem.find('.contacts__faq-icon');
+        const $currentText = $currentItem.find('[data-text]');
+        const isOpen = $currentIcon.hasClass('open');
 
-        $('.contacts__faq-icon').removeClass('open');
-        $('[data-text]').stop(true, true).slideUp(200);
+        if (isOpen) {
+            $currentIcon.removeClass('open');
+            $currentText.stop(true, true).animate({ opacity: 0 }, 150, function () {
+                $(this).slideUp(200);
+            });
+        } else {
+            $allIcons.removeClass('open');
+            $allTexts.stop(true, true).animate({ opacity: 0 }, 150, function () {
+                $(this).slideUp(200);
+            });
 
-        if (!isOpen) {
-            $icon.addClass('open');
-            $text.stop(true, true).slideDown(200);
+            setTimeout(() => {
+                $currentIcon.addClass('open');
+                $currentText
+                    .stop(true, true)
+                    .css({ display: 'none', opacity: 0 })
+                    .slideDown(200)
+                    .animate({ opacity: 1 }, 400);
+            }, 0);
         }
     });
 });
