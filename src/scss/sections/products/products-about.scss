@@ -1,0 +1,26 @@
+.products {
+    &__about {
+        overflow-x: hidden;
+        padding-top: 100px;
+        margin-right: -16px;
+        padding-right: 16px;
+
+        &::before {
+            content: '';
+            background-image: url('../img/global/animation.svg');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+            position: absolute;
+            right: -35px;
+            top: 60px;
+            width: 200px;
+            height: 129px;
+            z-index: -1;
+            opacity: .4;
+            overflow-y: visible;
+            transform: rotate(40deg);
+            pointer-events: none;
+        }
+    }
+}

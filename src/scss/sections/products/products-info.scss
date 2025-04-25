@@ -1,0 +1,44 @@
+.products {
+    &__contact {
+        overflow-y: visible;
+        overflow-x: clip;
+        margin-right: -16px;
+        padding-right: 16px;
+
+        &::before {
+            content: '';
+            background-image: url('../img/global/animation.svg');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+            position: absolute;
+            right: -35px;
+            top: -60px;
+            width: 200px;
+            height: 129px;
+            z-index: -1;
+            opacity: .4;
+            transform: rotate(45deg);
+            pointer-events: none;
+        }
+
+        &-text {
+            max-width: 400px;
+        }
+
+        &-img {
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            width: 100%;
+            height: 92vw;
+            border-radius: 20px;
+        }
+
+        &-item {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+        }
+    }
+}

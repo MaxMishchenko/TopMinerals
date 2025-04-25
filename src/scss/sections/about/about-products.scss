@@ -4,6 +4,10 @@
             border-radius: 20px;
         }
 
+        &-img {
+            transition: transform .4s ease;
+        }
+
         &-icon {
             min-width: 30px;
             min-height: 30px;

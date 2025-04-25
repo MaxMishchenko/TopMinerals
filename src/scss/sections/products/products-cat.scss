@@ -1,0 +1,18 @@
+.products {
+    &__cat {
+        &-link {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+        }
+
+        &-card {
+            border-radius: 20px;
+
+            &-img {
+                width: 53.335vw;
+                height: 36.8vw;
+            }
+        }
+    }
+}
