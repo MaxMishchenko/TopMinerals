@@ -1,6 +1,9 @@
 <section class="main__products position--relative grid gap--32">
-    <div class="grid gap--24">
-        <h2 class="font--primary font--size-28 font--semi color--white text--uppercase">Продукція</h2>
+    <button type="button" aria-label="Попередній слайд" class="main__products-carousel-nav main__products-carousel-nav--prev bg--black position--absolute"></button>
+    <button type="button" aria-label="Наступний слайд" class="main__products-carousel-nav main__products-carousel-nav--next bg--black position--absolute"></button>
+
+    <div class="main__products-wrapper grid gap--24">
+        <h2 class="main__products-title font--primary font--size-28 font--semi color--white text--uppercase">Продукція</h2>
 
         <ul class="main__products-container flex gap--6">
             <li data-cat="1" class="main__products-item font--secondary font--size-10 color--white font--medium pt--6 pb--6 pl--10 pr--10 flex flex--no-shrink active">Рідкі комплексні добрива</li>
@@ -11,8 +14,6 @@
         </ul>
 
         <div class="main__products-carousel position--relative flex flex--column flex--align-center m--auto">
-            <button type="button" aria-label="Попередній слайд" class="main__products-carousel-nav main__products-carousel-nav--prev bg--black position--absolute"></button>
-
             <div class="main__products-carousel-wrapper">
                 <div class="main__products-carousel-track flex gap--16">
                     <div data-slide="1,2,3,4,5" class="main__products-carousel-slide flex flex--justify-center flex--align-center flex--column bg--black pt--28 pb--24 pl--28 pr--28 gap--22">
@@ -98,14 +99,12 @@
                     </div>
                 </div>
             </div>
-
-            <button type="button" aria-label="Наступний слайд" class="main__products-carousel-nav main__products-carousel-nav--next bg--black position--absolute"></button>
         </div>
     </div>
 
     <div class="main__products-carousel-dots flex flex--align-center flex--justify-center gap--8"></div>
 
-    <a href="/TopMinerals/products.html" class="grid">
+    <a href="/TopMinerals/products.html" class="main__products-carousel-btn grid">
         <span class="btn bg--green flex gap--10 pt--16 pb--16 pl--24 pr--24 font--size-12 font--bold font--secondary color--black text--uppercase flex flex--align-center flex--justify-center">
             <span>Всі продукти</span>
 

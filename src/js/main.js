@@ -2,44 +2,86 @@ $(document).ready(function () {
     const $productCat = $('.main__products-item');
     const $track = $('.main__products-carousel-track');
     const $dotsContainer = $('.main__products-carousel-dots');
+    const $buttonsNav = $('.main__products-carousel-nav');
+    const $carouselTrack = $('.main__hero-category-slider-track');
+    const $slides = $('.main__hero-category-slider-slide');
+    const slideGap = 16;
 
     let currentIndex = 0;
+    let currentSlideIndex = 0;
+    let slidesToShow = 1;
 
-    // ==============================
-    // Функція ініціалізації слайдера
-    // ==============================
-    function initSlider() {
-        const $slides = getVisibleSlides();
-        currentIndex = Math.min(currentIndex, $slides.length - 1);
-
-        updateTrackPosition();
-        updateDots($slides);
-    }
+    // ==================================
+    // Функція для ініціалізації слайдера
+    // ==================================
+    $(window).on('resize', () => {
+        initSlider();
+    });
 
     function getVisibleSlides() {
         return $track.find('.main__products-carousel-slide').filter(':visible');
     }
 
-    function updateTrackPosition() {
-        const translateX = `calc(-${currentIndex * 100}% - ${currentIndex * 16}px)`;
-        $track.css('transform', `translateX(${translateX})`);
+    function initSlider() {
+        const $slides = getVisibleSlides();
+        const isDesktop = window.innerWidth >= 1024;
+        const slidesToShow = isDesktop ? 3 : 1;
+        const slideToScroll = 1;
+
+        const totalPages = isDesktop
+            ? Math.max($slides.length - slidesToShow + 1, 1)
+            : Math.ceil($slides.length / slidesToShow);
+
+        if (isDesktop && $slides.length <= slidesToShow) {
+            $track.css('transform', '');
+            $dotsContainer.empty();
+            $buttonsNav.hide();
+
+            return;
+        }
+
+        $buttonsNav.show();
+        currentIndex = Math.min(currentIndex, totalPages - 1);
+        updateTrackPosition(slidesToShow);
+        updateDots(totalPages);
     }
 
-    function updateDots($slides) {
+    // =======================
+    // Оновлення позиції треку
+    // =======================
+    function updateTrackPosition(slidesToShow) {
+        const $slides = getVisibleSlides();
+        const $firstSlide = $slides.eq(0);
+
+        if (!$firstSlide.length) return;
+
+        const slideWidth = $firstSlide.outerWidth(true);
+        const offset = currentIndex * (slideWidth + slideGap);
+
+        $track.css('transform', `translateX(-${offset}px)`);
+    }
+
+    // =========================
+    // Оновлення дотсів слайдера
+    // =========================
+    function updateDots(totalPages) {
         $dotsContainer.empty();
-        $slides.each((i) => {
+        for (let i = 0; i < totalPages; i++) {
             const $dot = createDot(i);
             $dotsContainer.append($dot);
-        });
+        }
     }
 
-    function createDot(i) {
+    // ==============
+    // Дотси слайдера
+    // ==============
+    function createDot(pageIndex) {
         const $dot = $('<button type="button"></button>')
-            .attr('aria-label', 'Перемкнути на слайд ' + (i + 1))
-            .toggleClass('active', i === currentIndex);
+            .attr('aria-label', 'Перемкнути на слайд ' + (pageIndex + 1))
+            .toggleClass('active', pageIndex === currentIndex);
 
         $dot.on('click', () => {
-            currentIndex = i;
+            currentIndex = pageIndex;
             initSlider();
         });
 
@@ -53,11 +95,14 @@ $(document).ready(function () {
         const carousel = $track[0];
         let startX, startY, endX, endY, isSwiping = false;
 
-        carousel.addEventListener('touchstart', handleTouchStart, {passive: true});
-        carousel.addEventListener('touchmove', handleTouchMove, {passive: false});
+        carousel.addEventListener('touchstart', handleTouchStart, { passive: true });
+        carousel.addEventListener('touchmove', handleTouchMove, { passive: false });
         carousel.addEventListener('touchend', handleTouchEnd);
     }
 
+    // ==============
+    // Обробка свайпу
+    // ==============
     function handleTouchStart(e) {
         const touch = e.touches[0];
         startX = touch.clientX;
@@ -100,14 +145,30 @@ $(document).ready(function () {
     // ========================
     function handlePrevClick() {
         const $slides = getVisibleSlides();
-        currentIndex = (currentIndex - 1 + $slides.length) % $slides.length;
-        initSlider();
+        const isDesktop = window.innerWidth >= 1024;
+        const slidesToShow = isDesktop ? 3 : 1;
+        const totalPages = isDesktop
+            ? Math.max($slides.length - slidesToShow + 1, 1)
+            : Math.ceil($slides.length / slidesToShow);
+
+        if (currentIndex > 0) {
+            currentIndex--;
+            initSlider();
+        }
     }
 
     function handleNextClick() {
         const $slides = getVisibleSlides();
-        currentIndex = (currentIndex + 1) % $slides.length;
-        initSlider();
+        const isDesktop = window.innerWidth >= 1024;
+        const slidesToShow = isDesktop ? 3 : 1;
+        const totalPages = isDesktop
+            ? Math.max($slides.length - slidesToShow + 1, 1)
+            : Math.ceil($slides.length / slidesToShow);
+
+        if (currentIndex < totalPages - 1) {
+            currentIndex++;
+            initSlider();
+        }
     }
 
     // ===========================
@@ -136,6 +197,60 @@ $(document).ready(function () {
             $el.toggleClass('hidden', !match);
         });
     }
+
+    // ======================================
+    // Міні слайдер категорій в першій секції
+    // ======================================
+    function updateCarousel() {
+        const slideWidth = $slides.outerWidth(true);
+        const offset = -currentSlideIndex * slideWidth;
+        $carouselTrack.css('transform', `translateX(${offset}px)`);
+
+        if (currentSlideIndex === 0) {
+            $('.main__hero-category-slider-button--prev').addClass('disabled');
+        } else {
+            $('.main__hero-category-slider-button--prev').removeClass('disabled');
+        }
+
+        if (currentSlideIndex >= $slides.length - slidesToShow) {
+            $('.main__hero-category-slider-button--next').addClass('disabled');
+        } else {
+            $('.main__hero-category-slider-button--next').removeClass('disabled');
+        }
+    }
+
+    function updateSlidesToShow() {
+        if (window.innerWidth >= 1440) {
+            slidesToShow = 2;
+        } else {
+            slidesToShow = 1;
+        }
+    }
+
+    // =======================
+    // Ініціалізація слайдерів
+    // =======================
+    $('.main__hero-category-slider-button--next').click(function () {
+        if (currentSlideIndex < $slides.length - slidesToShow) {
+            currentSlideIndex++;
+        }
+        updateCarousel();
+    });
+
+    $('.main__hero-category-slider-button--prev').click(function () {
+        if (currentSlideIndex > 0) {
+            currentSlideIndex--;
+        }
+        updateCarousel();
+    });
+
+    updateSlidesToShow();
+    updateCarousel();
+
+    $(window).resize(function () {
+        updateSlidesToShow();
+        updateCarousel();
+    });
 
     // =============
     // Ініціалізація

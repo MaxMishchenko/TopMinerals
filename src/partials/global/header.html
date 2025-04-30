@@ -1,18 +1,58 @@
-<header id="header" class="header position--fixed bg--black pt--10 pb--10 pl--24 pr--24 flex flex--align-center flex--justify-between">
-    <a href="/TopMinerals/" class="flex">
-        <img loading="lazy" width="66" height="25.548" src="./img/global/header_logo.svg" alt="Логотип Top Minerals">
-    </a>
+<header id="header" class="header position--fixed bg--black pt--10 pb--10 pl--24 pr--24">
+    <div id="header-wrapper" class="header__wrapper flex flex--align-center flex--justify-between">
+        <a href="/TopMinerals/" class="flex">
+            <img loading="lazy" width="66" height="25.548" class="header__menu-logo" src="./img/global/header_logo.svg" alt="Логотип Top Minerals">
+        </a>
 
-    <div id="burger" class="header__burger-wrapper flex flex--align-center flex--justify-center">
-        <svg width="28" height="28" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round">
-                <g transform="translate(12.000000, 29.000000)" fill-rule="nonzero" stroke-width="4">
-                    <path class="header__burger-line" id="line-middle" d="M13,20 L63,20" stroke="#0E0E0E" stroke-linejoin="round"></path>
-                    <path class="header__burger-line" id="line-top" d="M63,1 L13.347708,1 C4.449236,1 0,4.16666667 0,10.5 C0,16.8333333 4.449236,20 13.347708,20 L59,20" stroke="#0E0E0E"></path>
-                    <path class="header__burger-line" id="line-bottom" d="M42,68 L75,68 C81.6666667,67 85,63.8333333 85,58.5 C85,53.1666667 81.6666667,50 75,49 L30,49" transform="translate(-13.000000, -29.000000)" stroke="#0E0E0E"></path>
+        <div id="burger" class="header__burger-wrapper flex flex--align-center flex--justify-center">
+            <svg width="28" height="28" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round">
+                    <g transform="translate(12.000000, 29.000000)" fill-rule="nonzero" stroke-width="4">
+                        <path class="header__burger-line" id="line-middle" d="M13,20 L63,20" stroke="#0E0E0E" stroke-linejoin="round"></path>
+                        <path class="header__burger-line" id="line-top" d="M63,1 L13.347708,1 C4.449236,1 0,4.16666667 0,10.5 C0,16.8333333 4.449236,20 13.347708,20 L59,20" stroke="#0E0E0E"></path>
+                        <path class="header__burger-line" id="line-bottom" d="M42,68 L75,68 C81.6666667,67 85,63.8333333 85,58.5 C85,53.1666667 81.6666667,50 75,49 L30,49" transform="translate(-13.000000, -29.000000)" stroke="#0E0E0E"></path>
+                    </g>
                 </g>
-            </g>
-        </svg>
+            </svg>
+        </div>
+
+        <nav class="header__menu hidden flex--align-center">
+            <ul class="flex flex--align-baseline gap--16">
+                <li class="header__menu-item pt--6 pb--6 pr--12 pl--12 active">
+                    <a href="/TopMinerals/" class="header__menu-link text--uppercase font--size-12 font--bold font--secondary color--white">Головна</a>
+                </li>
+
+                <li class="header__menu-dropdown-wrapper position--relative">
+                    <div class="header__menu-item header__menu-item-dropdown flex flex--align-center gap--8 pt--8 pb--8 pr--12 pl--12">
+                        <span class="header__menu-link text--uppercase font--size-12 font--bold font--secondary color--white">Top Minerals</span>
+
+                        <img loading="lazy" width="8" height="6" class="header__menu-item-img" src="./img/icons/icon_chevron_menu.svg" alt="Іконка випадаючого меню">
+                    </div>
+
+                    <ul class="header__menu-dropdown bg--black position--absolute pb--6 pl--12 pr--12 flex flex--column gap--3">
+                        <li>
+                            <a href="/TopMinerals/about-us.html" class="header__menu-dropdown-link font--size-10 font--medium font--secondary color--white">Про нас</a>
+                        </li>
+
+                        <li>
+                            <a href="#" class="header__menu-dropdown-link font--size-10 font--medium font--secondary color--white">Новини</a>
+                        </li>
+
+                        <li>
+                            <a href="#" class="header__menu-dropdown-link font--size-10 font--medium font--secondary color--white">Патенти</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="header__menu-item pt--6 pb--6 pr--12 pl--12">
+                    <a href="/TopMinerals/products.html" class="header__menu-link text--uppercase font--size-12 font--bold font--secondary color--white">Продукти</a>
+                </li>
+
+                <li class="header__menu-item pt--6 pb--6 pr--12 pl--12">
+                    <a href="/TopMinerals/contacts.html" class="header__menu-link text--uppercase font--size-12 font--bold font--secondary color--white">Контакти</a>
+                </li>
+            </ul>
+        </nav>
     </div>
 </header>
 

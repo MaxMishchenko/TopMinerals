@@ -1,0 +1,39 @@
+.product {
+    &__hero {
+        padding-top: 100px;
+        margin-left: -16px;
+        padding-left: 16px;
+
+        &::before {
+            content: '';
+            background-image: url('../img/global/animation.svg');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+            position: absolute;
+            bottom: 125px;
+            left: -34px;
+            width: 200px;
+            height: 129px;
+            z-index: -1;
+            opacity: .4;
+            overflow-y: visible;
+            transform: scaleX(-1) rotate(-25deg);
+            pointer-events: none;
+        }
+
+        &-wrapper {
+            border-radius: 50%;
+            width: 276px;
+            height: 276px;
+        }
+
+        &-img {
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 343px;
+            height: auto;
+        }
+    }
+}

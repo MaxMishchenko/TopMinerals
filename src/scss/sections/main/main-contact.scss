@@ -1,10 +1,47 @@
 .main {
     &__contact {
+        @media (min-width: 1024px) {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-left: 80px;
+            padding-right: 80px;
+            max-width: 1440px;
+
+            //max-width: 1200px;
+            //margin: 0 auto;
+            //width: 100%;
+
+            &-title {
+                @include font(32);
+            }
+
+            &-btn {
+                display: none;
+
+                &-small {
+                    display: grid;
+                    width: 167px;
+                    height: 49px;
+                }
+            }
+        }
+
+        @media (min-width: 1440px) {
+            padding-left: 120px;
+            padding-right: 120px;
+        }
+
         &-list {
             overflow-y: visible;
             overflow-x: clip;
             margin-right: -16px;
             padding-right: 16px;
+
+            @media (min-width: 1024px) {
+                gap: 16px;
+                margin-bottom: 24px;
+            }
 
             &::before {
                 content: '';
@@ -21,11 +58,20 @@
                 opacity: .4;
                 transform: rotate(45deg);
                 pointer-events: none;
+
+                @media (min-width: 1024px) {
+                    display: none;
+                }
             }
         }
 
         &-text {
             max-width: 400px;
+            
+            @media (min-width: 1024px) {
+                @include font(20);
+                max-width: 485px;
+            }
         }
 
         &-img {
@@ -35,6 +81,12 @@
             width: 100%;
             height: 92vw;
             border-radius: 20px;
+
+            @media (min-width: 1024px) {
+                max-width: 488px;
+                width: 33.889vw;
+                max-height: 365px;
+            }
         }
 
         &-item {

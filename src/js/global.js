@@ -2,7 +2,6 @@ $(document).ready(function () {
     const $window = $(window);
     const windowHeight = $window.height();
     const $body = $('body');
-    const $header = $('#header');
     const $burger = $('#burger');
     const $menu = $('#menu');
     const $menuChevron = $('#menu-chevron');
@@ -13,15 +12,39 @@ $(document).ready(function () {
 
     let scrollTimeout;
     let throttleTimer = null;
+    let $header;
 
     // ========================
     // Хедер і кнопка "вгору"
     // ========================
-    function checkHeaderPosition() {
-        if ($window.scrollTop() > 16 || $header.offset().top !== 16) {
-            $header.addClass('floating');
+    function updateHeader() {
+        if (window.innerWidth >= 1024) {
+            $('#header').removeClass('floating');
+            $header = $('#header-wrapper');
         } else {
-            $header.removeClass('floating');
+            $header = $('#header');
+        }
+    }
+
+    function checkHeaderPosition() {
+        const isWideScreen = window.innerWidth >= 1024;
+        const scrollThreshold = isWideScreen ? 30 : 16;
+        const offsetThreshold = isWideScreen ? 30 : 16;
+
+        if (typeof $header !== 'undefined' && $header.length &&
+            ($window.scrollTop() > scrollThreshold || $header.offset().top > offsetThreshold)) {
+
+            if (isWideScreen) {
+                $('#header-wrapper').addClass('floating');
+            } else {
+                $('#header').addClass('floating');
+            }
+        } else {
+            if (isWideScreen) {
+                $('#header-wrapper').removeClass('floating');
+            } else {
+                $('#header').removeClass('floating');
+            }
         }
     }
 
@@ -71,6 +94,7 @@ $(document).ready(function () {
     }
 
     $window.on('scroll resize', throttledLazyLoad);
+    $(window).on('resize', updateHeader);
 
     // ========================
     // Анімації .fadeInFlex та .fadeOutFlex
@@ -121,6 +145,7 @@ $(document).ready(function () {
     // ========================
     // Ініціалізація
     // ========================
+    updateHeader();
     checkHeaderPosition();
     lazyLoadBackground();
 

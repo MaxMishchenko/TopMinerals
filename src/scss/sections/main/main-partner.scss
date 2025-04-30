@@ -20,6 +20,10 @@
             overflow-y: visible;
             transform: scaleX(-1) rotate(45deg);
             pointer-events: none;
+
+            @media (min-width: 1024px) {
+                display: none;
+            }
         }
 
         &-img {
@@ -29,6 +33,52 @@
             width: 100%;
             height: 92vw;
             border-radius: 20px;
+        }
+
+        @media (min-width: 1024px) {
+            display: flex;
+            flex-direction: row-reverse;
+            max-width: 1440px;
+            padding-left: 80px;
+            padding-right: 80px;
+            gap: 48px;
+            margin-bottom: 103px;
+
+            &-btn {
+                display: none;
+
+                &-small {
+                    display: grid;
+                    width: 167px;
+                    height: 49px;
+                }
+            }
+
+            &-img {
+                min-width: 26vw;
+                height: auto;
+                max-width: 723px;
+            }
+
+            &-title {
+                @include font(24);
+            }
+
+            &-text {
+                @include font(20);
+                margin-bottom: 24px;
+            }
+
+            &-container {
+                display: flex;
+                flex-direction: column;
+                flex-basis: 59%;
+            }
+        }
+
+        @media (min-width: 1440px) {
+            padding-left: 120px;
+            padding-right: 120px;
         }
     }
 }

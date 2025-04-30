@@ -9,6 +9,11 @@
 body {
     background-color: var(--color--grey);
 
+    @media (min-width: 1024px) {
+        max-width: 1440px;
+        margin: 0 auto;
+    }
+
     &::after {
         content: '';
         position: fixed;
@@ -48,5 +53,15 @@ body {
 
     &.scrolling {
         opacity: .2 !important;
+    }
+}
+
+.main {
+    padding-left: 16px;
+    padding-right: 16px;
+
+    @media (min-width: 1024px) {
+        padding-left: 0;
+        padding-right: 0;
     }
 }

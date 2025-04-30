@@ -5,7 +5,7 @@
 <body class="grid gap--64">
 @include('partials/global/header.html')
 
-<main class="pl--16 pr--16 grid gap--64">
+<main class="main grid gap--64">
     @include('partials/main/sections/section-hero.html')
 
     @include('partials/main/sections/section-partner.html')
@@ -17,9 +17,7 @@
 
 @include('partials/global/footer.html')
 
-<button class="to-top bg--white position--fixed flex--align-center flex--justify-center" title="Проскролити вгору">
-    <img loading="lazy" width="22" height="18" src="./img/icons/icon_arrow_top.svg" alt="Іконка кнопки проскролити вгору">
-</button>
+@include('partials/global/float-button.html')
 
 <script src="./js/jquery.js"></script>
 <script src="./js/global.js?v=orvj"></script>
