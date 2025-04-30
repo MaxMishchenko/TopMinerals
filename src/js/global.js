@@ -14,9 +14,9 @@ $(document).ready(function () {
     let throttleTimer = null;
     let $header;
 
-    // ========================
+    // ======================
     // Хедер і кнопка "вгору"
-    // ========================
+    // ======================
     function updateHeader() {
         if (window.innerWidth >= 1024) {
             $('#header').removeClass('floating');
@@ -65,9 +65,9 @@ $(document).ready(function () {
         $('html, body').animate({scrollTop: 0}, 500);
     });
 
-    // ========================
-    // Lazy load фонів
-    // ========================
+    // =========
+    // Lazy load
+    // =========
     window.lazyLoadBackground = function () {
         const scrollTop = $window.scrollTop();
 
@@ -78,8 +78,24 @@ $(document).ready(function () {
 
             if ($el.hasClass('lazy-bg') && $el.is(':visible') && elTop < scrollTop + windowHeight && bg) {
                 $el.css({ 'background-image': `url(${bg})`, opacity: 0 })
-                    .animate({ opacity: 1 }, 400)
+                    .animate({ opacity: 1 }, 600)
                     .removeClass('lazy-bg');
+            }
+        });
+
+        $('img[loading="lazy"]').each(function () {
+            const $el = $(this);
+
+            if ($el.data('lazy-animated')) return;
+
+            if ($el[0].complete) {
+                $el.css('opacity', 0)
+                    .animate({ opacity: 1 }, 600)
+                    .data('lazy-animated', true);
+            } else {
+                $el.css('opacity', 0).on('load', function () {
+                    $(this).animate({ opacity: 1 }, 600).data('lazy-animated', true);
+                });
             }
         });
     };
@@ -96,9 +112,9 @@ $(document).ready(function () {
     $window.on('scroll resize', throttledLazyLoad);
     $(window).on('resize', updateHeader);
 
-    // ========================
+    // ====================================
     // Анімації .fadeInFlex та .fadeOutFlex
-    // ========================
+    // ====================================
     $.fn.fadeInFlex = function (duration = 400) {
         return this.css({display: 'flex', opacity: 0}).animate({opacity: 1}, duration);
     };
@@ -109,9 +125,9 @@ $(document).ready(function () {
         });
     };
 
-    // ========================
+    // =============
     // Мобільне меню
-    // ========================
+    // =============
     function smoothMenuToggle() {
         const isVisible = $submenu.hasClass('visible');
 
@@ -142,9 +158,9 @@ $(document).ready(function () {
 
     $menu.click(smoothMenuToggle);
 
-    // ========================
+    // =============
     // Ініціалізація
-    // ========================
+    // =============
     updateHeader();
     checkHeaderPosition();
     lazyLoadBackground();
