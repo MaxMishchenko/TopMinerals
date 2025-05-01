@@ -6,18 +6,18 @@
 
         &::before {
             content: '';
-            background-image: url(../img/global/animation.svg);
+            background-image: url('../img/global/global_animation.svg');
             background-position: center;
             background-repeat: no-repeat;
             background-size: contain;
             position: absolute;
-            right: 24px;
+            right: 30px;
             top: 40px;
-            width: 200px;
-            height: 129px;
+            width: 162px;
+            height: 222px;
             z-index: -1;
             opacity: .4;
-            transform: rotate(24deg);
+            transform: rotate(-60deg);
             pointer-events: none;
         }
 
