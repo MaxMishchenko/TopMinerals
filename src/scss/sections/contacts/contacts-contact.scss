@@ -76,7 +76,12 @@
             }
 
             &-link {
+                transition: .4s ease-in-out;
                 @include font(20);
+
+                &:hover {
+                    color: var(--color--pale-grey);
+                }
             }
         }
 
