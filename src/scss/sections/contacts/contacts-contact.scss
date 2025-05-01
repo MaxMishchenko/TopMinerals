@@ -21,12 +21,40 @@
             overflow-y: visible;
             transform: rotate(-60deg);
             pointer-events: none;
+
+            @media (min-width: 1024px) {
+                display: none;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            &-title {
+                @include font(56);
+            }
+
+            &-subtitle {
+                @include font(20);
+            }
+
+            &-link {
+                @include font(20);
+            }
         }
 
         &-item {
             width: 32px;
             height: 32px;
             border-radius: 50%;
+
+            @media (min-width: 1024px) {
+                width: 48px;
+                height: 48px;
+
+                img {
+                    width: 24px;
+                    height: 24px;
+                }
+            }
         }
     }
 }
