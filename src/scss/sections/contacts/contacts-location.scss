@@ -1,7 +1,27 @@
 .contacts {
     &__location {
+        @media (min-width: 1024px) {
+            gap: 64px;
+            margin-bottom: 64px;
+            padding-left: 80px;
+            padding-right: 80px;
+
+            &-title {
+                @include font(32);
+            }
+        }
+
+        @media (min-width: 1440px) {
+            padding-left: 120px;
+            padding-right: 120px;
+        }
+
         &-map {
             border-radius: 20px;
+
+            @media (min-width: 1024px) {
+                height: 664px;
+            }
         }
     }
 }

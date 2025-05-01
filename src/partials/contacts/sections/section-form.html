@@ -1,80 +1,84 @@
 <form id="contact-form" action="#" class="contacts__form pt--32 pb--32 pl--32 pr--32 bg--white">
     <div class="contacts__form-wrapper flex flex--column gap--32">
-        <h2 class="font--size-28 font--primary font--semi text--uppercase text--center">Замовити зворотній зв’язок</h2>
+        <h2 class="contacts__form-title font--size-28 font--primary font--semi text--uppercase text--center">Замовити зворотній зв’язок</h2>
 
         <div class="flex flex--column gap--32">
             <div class="flex flex--column gap--16">
-                <div class="flex flex--column gap--16">
-                    <div class="flex flex--column gap--6">
-                        <input tabindex="1" id="name" class="contacts__form-field font--secondary font--normal font--size-14 bg--pale-grey color--black pt--12 pb--12 pl--24 pr--24" type="text" maxlength="200" minlength="2" pattern="[A-Za-zА-Яа-яёЁіІїЇєЄ\s]+" name="name" placeholder="ПІБ" required>
+                <div class="contacts__form-fields flex flex--column gap--16">
+                    <div class="contacts__form-container flex flex--column gap--16">
+                        <div class="contacts__form-content flex flex--column gap--6">
+                            <input tabindex="1" id="name" class="contacts__form-field font--secondary font--normal font--size-14 bg--pale-grey color--black pt--12 pb--12 pl--24 pr--24" type="text" maxlength="200" minlength="2" pattern="[A-Za-zА-Яа-яёЁіІїЇєЄ\s]+" name="name" placeholder="ПІБ" required>
 
-                        <div class="contacts__form-field-error flex flex--align-center gap--6">
-                            <img loading="lazy" width="10" height="10" src="./img/icons/icon_error_field.svg" alt="Іконка помилки">
+                            <div class="contacts__form-field-error flex flex--align-center gap--6">
+                                <img loading="lazy" width="10" height="10" class="contacts__form-field-error-img" src="./img/icons/icon_error_field.svg" alt="Іконка помилки">
 
-                            <span class="font--size-10 font--normal font--medium font--secondary color--red">Перевірте коректність введених даних</span>
+                                <span class="contacts__form-field-error-text font--size-10 font--normal font--medium font--secondary color--red">Перевірте коректність введених даних</span>
+                            </div>
+                        </div>
+
+                        <div class="contacts__form-content flex flex--column gap--6">
+                            <input tabindex="2" type="tel" id="phone" name="phone" class="contacts__form-field font--secondary font--normal font--size-14 bg--pale-grey color--black pt--12 pb--12 pl--24 pr--24" placeholder="Номер телефону" aria-label="Номер телефону у форматі +380XXXXXXXXX" autocomplete="tel" inputmode="tel" required>
+
+                            <div class="contacts__form-field-error flex flex--align-center gap--6">
+                                <img loading="lazy" width="10" height="10" class="contacts__form-field-error-img" src="./img/icons/icon_error_field.svg" alt="Іконка помилки">
+
+                                <span class="contacts__form-field-error-text font--size-10 font--normal font--medium font--secondary color--red">Перевірте коректність введених даних</span>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="flex flex--column gap--6">
-                        <input tabindex="2" type="tel" id="phone" name="phone" class="contacts__form-field font--secondary font--normal font--size-14 bg--pale-grey color--black pt--12 pb--12 pl--24 pr--24" placeholder="Номер телефону" aria-label="Номер телефону у форматі +380XXXXXXXXX" autocomplete="tel" inputmode="tel" required>
+                    <div class="contacts__form-container flex flex--column gap--16">
+                        <div class="contacts__form-content flex flex--column gap--6">
+                            <input tabindex="3" type="email" id="email" class="contacts__form-field font--secondary font--normal font--size-14 bg--pale-grey color--black pt--12 pb--12 pl--24 pr--24" maxlength="100" placeholder="Email" name="email">
 
-                        <div class="contacts__form-field-error flex flex--align-center gap--6">
-                            <img loading="lazy" width="10" height="10" src="./img/icons/icon_error_field.svg" alt="Іконка помилки">
+                            <div class="contacts__form-field-error flex flex--align-center gap--6">
+                                <img loading="lazy" width="10" height="10" class="contacts__form-field-error-img" src="./img/icons/icon_error_field.svg" alt="Іконка помилки">
 
-                            <span class="font--size-10 font--normal font--medium font--secondary color--red">Перевірте коректність введених даних</span>
-                        </div>
-                    </div>
-
-                    <div class="flex flex--column gap--6">
-                        <input tabindex="3" type="email" id="email" class="contacts__form-field font--secondary font--normal font--size-14 bg--pale-grey color--black pt--12 pb--12 pl--24 pr--24" maxlength="100" placeholder="Email" name="email">
-
-                        <div class="contacts__form-field-error flex flex--align-center gap--6">
-                            <img loading="lazy" width="10" height="10" src="./img/icons/icon_error_field.svg" alt="Іконка помилки">
-
-                            <span class="font--size-10 font--normal font--medium font--secondary color--red">Перевірте коректність введених даних</span>
-                        </div>
-                    </div>
-
-                    <div class="contacts__form-select-field position--relative">
-                        <div tabindex="4" id="custom-select" class="contacts__form-field custom--select position--relative font--secondary font--normal font--size-14 bg--pale-grey pt--12 pb--12 pl--24 pr--24">
-                        <span id="selected-region" class="color--black">
-                            <span class="color--light-grey">Оберіть регіон</span>
-                        </span>
-
-                            <img loading="lazy" width="10" height="5" class="contacts__form-select-img position--absolute" src="./img/icons/icon_chevron_black.svg" alt="Іконка випадаючого списку">
+                                <span class="contacts__form-field-error-text font--size-10 font--normal font--medium font--secondary color--red">Перевірте коректність введених даних</span>
+                            </div>
                         </div>
 
-                        <div class="contacts__form-select-wrapper position--relative">
-                            <ul class="contacts__form-select-options position--absolute bg--pale-grey pt--12 pb--12 pl--24 pr--24 flex flex--column gap--8">
-                                <li class="custom--option color--black font--secondary font--size-14 font--normal" data-value="vinnytska">Вінницька область</li>
-                                <li class="custom--option color--black font--secondary font--size-14 font--normal" data-value="volynska">Волинська область</li>
-                                <li class="custom--option color--black font--secondary font--size-14 font--normal" data-value="dnipropetrovska">Дніпропетровська область</li>
-                                <li class="custom--option color--black font--secondary font--size-14 font--normal" data-value="donetska">Донецька область</li>
-                                <li class="custom--option color--black font--secondary font--size-14 font--normal" data-value="zhytomyrska">Житомирська область</li>
-                                <li class="custom--option color--black font--secondary font--size-14 font--normal" data-value="zakarpatska">Закарпатська область</li>
-                                <li class="custom--option color--black font--secondary font--size-14 font--normal" data-value="zaporizka">Запорізька область</li>
-                                <li class="custom--option color--black font--secondary font--size-14 font--normal" data-value="ivano-frankivska">Івано-Франківська область</li>
-                                <li class="custom--option color--black font--secondary font--size-14 font--normal" data-value="kirovohradska">Кіровоградська область</li>
-                                <li class="custom--option color--black font--secondary font--size-14 font--normal" data-value="kyivska">Київ</li>
-                                <li class="custom--option color--black font--secondary font--size-14 font--normal" data-value="kyivska">Київська область</li>
-                                <li class="custom--option color--black font--secondary font--size-14 font--normal" data-value="luhanska">Луганська область</li>
-                                <li class="custom--option color--black font--secondary font--size-14 font--normal" data-value="lvivska">Львівська область</li>
-                                <li class="custom--option color--black font--secondary font--size-14 font--normal" data-value="mykolaivska">Миколаївська область</li>
-                                <li class="custom--option color--black font--secondary font--size-14 font--normal" data-value="odeska">Одеська область</li>
-                                <li class="custom--option color--black font--secondary font--size-14 font--normal" data-value="poltavska">Полтавська область</li>
-                                <li class="custom--option color--black font--secondary font--size-14 font--normal" data-value="rivnenska">Рівненська область</li>
-                                <li class="custom--option color--black font--secondary font--size-14 font--normal" data-value="sumska">Сумська область</li>
-                                <li class="custom--option color--black font--secondary font--size-14 font--normal" data-value="ternopilska">Тернопільська область</li>
-                                <li class="custom--option color--black font--secondary font--size-14 font--normal" data-value="kharkivska">Харківська область</li>
-                                <li class="custom--option color--black font--secondary font--size-14 font--normal" data-value="khersonska">Херсонська область</li>
-                                <li class="custom--option color--black font--secondary font--size-14 font--normal" data-value="khmelnytska">Хмельницька область</li>
-                                <li class="custom--option color--black font--secondary font--size-14 font--normal" data-value="cherkaska">Черкаська область</li>
-                                <li class="custom--option color--black font--secondary font--size-14 font--normal" data-value="chernivetska">Чернівецька область</li>
-                                <li class="custom--option color--black font--secondary font--size-14 font--normal" data-value="chernihivska">Чернігівська область</li>
-                            </ul>
-                        </div>
+                        <div class="contacts__form-select-field position--relative">
+                            <div tabindex="4" id="custom-select" class="contacts__form-field custom--select position--relative font--secondary font--normal font--size-14 bg--pale-grey pt--12 pb--12 pl--24 pr--24">
+                                <span id="selected-region" class="color--black">
+                                    <span class="color--light-grey">Оберіть регіон</span>
+                                </span>
 
-                        <input type="hidden" name="region">
+                                <img loading="lazy" width="10" height="5" class="contacts__form-select-img position--absolute" src="./img/icons/icon_chevron_black.svg" alt="Іконка випадаючого списку">
+                            </div>
+
+                            <div class="contacts__form-select-wrapper position--relative">
+                                <ul class="contacts__form-select-options position--absolute bg--pale-grey pt--12 pb--12 pl--24 pr--24 flex flex--column gap--8">
+                                    <li class="custom--option color--black font--secondary font--size-14 font--normal" data-value="vinnytska">Вінницька область</li>
+                                    <li class="custom--option color--black font--secondary font--size-14 font--normal" data-value="volynska">Волинська область</li>
+                                    <li class="custom--option color--black font--secondary font--size-14 font--normal" data-value="dnipropetrovska">Дніпропетровська область</li>
+                                    <li class="custom--option color--black font--secondary font--size-14 font--normal" data-value="donetska">Донецька область</li>
+                                    <li class="custom--option color--black font--secondary font--size-14 font--normal" data-value="zhytomyrska">Житомирська область</li>
+                                    <li class="custom--option color--black font--secondary font--size-14 font--normal" data-value="zakarpatska">Закарпатська область</li>
+                                    <li class="custom--option color--black font--secondary font--size-14 font--normal" data-value="zaporizka">Запорізька область</li>
+                                    <li class="custom--option color--black font--secondary font--size-14 font--normal" data-value="ivano-frankivska">Івано-Франківська область</li>
+                                    <li class="custom--option color--black font--secondary font--size-14 font--normal" data-value="kirovohradska">Кіровоградська область</li>
+                                    <li class="custom--option color--black font--secondary font--size-14 font--normal" data-value="kyivska">Київ</li>
+                                    <li class="custom--option color--black font--secondary font--size-14 font--normal" data-value="kyivska">Київська область</li>
+                                    <li class="custom--option color--black font--secondary font--size-14 font--normal" data-value="luhanska">Луганська область</li>
+                                    <li class="custom--option color--black font--secondary font--size-14 font--normal" data-value="lvivska">Львівська область</li>
+                                    <li class="custom--option color--black font--secondary font--size-14 font--normal" data-value="mykolaivska">Миколаївська область</li>
+                                    <li class="custom--option color--black font--secondary font--size-14 font--normal" data-value="odeska">Одеська область</li>
+                                    <li class="custom--option color--black font--secondary font--size-14 font--normal" data-value="poltavska">Полтавська область</li>
+                                    <li class="custom--option color--black font--secondary font--size-14 font--normal" data-value="rivnenska">Рівненська область</li>
+                                    <li class="custom--option color--black font--secondary font--size-14 font--normal" data-value="sumska">Сумська область</li>
+                                    <li class="custom--option color--black font--secondary font--size-14 font--normal" data-value="ternopilska">Тернопільська область</li>
+                                    <li class="custom--option color--black font--secondary font--size-14 font--normal" data-value="kharkivska">Харківська область</li>
+                                    <li class="custom--option color--black font--secondary font--size-14 font--normal" data-value="khersonska">Херсонська область</li>
+                                    <li class="custom--option color--black font--secondary font--size-14 font--normal" data-value="khmelnytska">Хмельницька область</li>
+                                    <li class="custom--option color--black font--secondary font--size-14 font--normal" data-value="cherkaska">Черкаська область</li>
+                                    <li class="custom--option color--black font--secondary font--size-14 font--normal" data-value="chernivetska">Чернівецька область</li>
+                                    <li class="custom--option color--black font--secondary font--size-14 font--normal" data-value="chernihivska">Чернігівська область</li>
+                                </ul>
+                            </div>
+
+                            <input type="hidden" name="region">
+                        </div>
                     </div>
                 </div>
 
@@ -82,16 +86,16 @@
             </div>
 
             <div id="privacy-checkbox" class="flex flex--align-center gap--16">
-                <div class="flex position--relative">
+                <div class="contacts__form-privacy flex position--relative">
                     <input tabindex="6" id="privacy" type="checkbox" name="privacy" class="contacts__form-checkbox">
 
-                    <img loading="lazy" width="8" height="6" class="contacts__form-checkbox-icon position--absolute" src="./img/icons/icon_checked.svg" alt="Іконка чекбоксу">
+                    <img width="8" height="6" class="contacts__form-checkbox-icon position--absolute" src="./img/icons/icon_checked.svg" alt="Іконка чекбоксу">
                 </div>
 
-                <label id="privacy-label" for="privacy" class="font--secondary font--normal font--size-14 color--black">Даю згоду на обробку персональних даних*</label>
+                <label id="privacy-label" for="privacy" class="contacts__form-privacy font--secondary font--normal font--size-14 color--black">Даю згоду на обробку персональних даних*</label>
             </div>
 
-            <button id="submit" tabindex="7" type="submit" class="btn bg--green font--secondary font--size-12 font--bold text--uppercase pt--16 pb--16 pl--24 pr--24 mb--16">Надіслати</button>
+            <button id="submit" tabindex="7" type="submit" class="contacts__form-submit btn bg--green font--secondary font--size-12 font--bold text--uppercase pt--16 pb--16 pl--24 pr--24 mb--16">Надіслати</button>
         </div>
     </div>
 

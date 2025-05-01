@@ -28,6 +28,45 @@
         }
 
         @media (min-width: 1024px) {
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            padding: 113px 80px 0 80px;
+            gap: 16px;
+            padding-right: 0;
+            margin-right: 0;
+            margin-bottom: 64px;
+            overflow-x: clip;
+
+            &-wrapper {
+                gap: 64px;
+                position: relative;
+
+                &::before {
+                    content: '';
+                    background-image: url('../img/global/global_animation.svg');
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-size: contain;
+                    position: absolute;
+                    right: 0;
+                    bottom: -350px;
+                    width: 450px;
+                    height: 450px;
+                    z-index: -1;
+                    opacity: .4;
+                    overflow-y: visible;
+                    transform: rotate(60deg);
+                    pointer-events: none;
+                }
+            }
+
+            &-list {
+                &-item {
+                    gap: 24px;
+                }
+            }
+
             &-title {
                 @include font(56);
             }
@@ -39,6 +78,10 @@
             &-link {
                 @include font(20);
             }
+        }
+
+        @media (min-width: 1440px) {
+            padding: 113px 120px 0 120px;
         }
 
         &-item {

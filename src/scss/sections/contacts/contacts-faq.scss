@@ -19,6 +19,74 @@
             opacity: .4;
             transform: rotate(-60deg);
             pointer-events: none;
+
+            @media (min-width: 1024px) {
+                display: none;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            margin-right: 0;
+            padding-right: 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-left: 80px;
+            padding-right: 80px;
+            margin-bottom: 64px;
+            overflow: visible;
+
+            &::after {
+                content: '';
+                background-image: url('../img/global/global_animation.svg');
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: contain;
+                position: absolute;
+                left: 10%;
+                top: -220px;
+                width: 450px;
+                height: 450px;
+                z-index: -1;
+                opacity: .4;
+                overflow-y: visible;
+                transform: scaleX(1) translateX(120px) rotate(-45deg);
+                pointer-events: none;
+            }
+
+            &-title {
+                @include font(32);
+            }
+
+            &-text {
+                @include font(20);
+                max-width: 380px;
+            }
+
+            &-container {
+                gap: 32px;
+            }
+
+            &-wrapper {
+                gap: 16px;
+            }
+
+            &-link {
+                transition: .4s ease-in-out;
+
+                &:hover {
+                    color: var(--color--pale-grey);
+                }
+            }
+
+            &-subtitle {
+                @include font(20);
+            }
+        }
+
+        @media (min-width: 1440px) {
+            padding-left: 120px;
+            padding-right: 120px;
         }
 
         &-item {
@@ -45,6 +113,15 @@
 
         &-list {
             border-radius: 20px;
+
+            @media (min-width: 1024px) {
+                max-width: 520px;
+                cursor: pointer;
+            }
+
+            @media (min-width: 1024px) {
+                max-width: 686px;
+            }
         }
     }
 }
