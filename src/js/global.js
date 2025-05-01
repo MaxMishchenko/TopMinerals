@@ -133,17 +133,16 @@ $(document).ready(function () {
     function checkFadeInVisibility() {
         const scrollTop = $(window).scrollTop();
         const windowHeight = $(window).height();
-        const visibleElements = $('.fade--in:not(.visible)').filter(function () {
+        const visibilityThreshold = windowHeight * 0.1;
+
+        $('.fade--in:not(.visible)').each(function () {
             const $el = $(this);
             const elTop = $el.offset().top;
             const elBottom = elTop + $el.outerHeight();
 
-            return elTop < scrollTop + windowHeight && elBottom > scrollTop;
-        });
-
-        visibleElements.each(function (index) {
-            const $el = $(this);
-            $el.addClass('visible');
+            if (elTop + $el.outerHeight() * 0.1 < scrollTop + windowHeight && elBottom - $el.outerHeight() * 0.5 > scrollTop) {
+                $el.addClass('visible');
+            }
         });
     }
 
@@ -201,7 +200,6 @@ $(document).ready(function () {
     updateHeader();
     checkHeaderPosition();
     lazyLoadBackground();
-    checkFadeInVisibility();
 
     $window.on('scroll', function () {
         checkHeaderPosition();
