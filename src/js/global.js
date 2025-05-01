@@ -102,6 +102,9 @@ $(document).ready(function () {
         });
     };
 
+    // ===========================
+    // Саморобна реалізація throttle
+    // ===========================
     function throttledLazyLoad() {
         if (throttleTimer) return;
 
@@ -140,17 +143,15 @@ $(document).ready(function () {
 
         visibleElements.each(function (index) {
             const $el = $(this);
-            setTimeout(() => {
-                $el.addClass('visible');
-            }, index * 400);
+            $el.addClass('visible');
         });
     }
 
     $(window).on('scroll resize load', checkFadeInVisibility);
 
-    // =============
+    // ================
     // Мобільне меню
-    // =============
+    // ================
     function smoothMenuToggle() {
         const isVisible = $submenu.hasClass('visible');
 
@@ -194,14 +195,13 @@ $(document).ready(function () {
         }
     });
 
-    // =============
+    // ================
     // Ініціалізація
-    // =============
+    // ================
     updateHeader();
     checkHeaderPosition();
     lazyLoadBackground();
     checkFadeInVisibility();
-    handleToTopVisibility();
 
     $window.on('scroll', function () {
         checkHeaderPosition();
