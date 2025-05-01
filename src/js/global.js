@@ -1,6 +1,7 @@
 $(document).ready(function () {
     const $window = $(window);
     const windowHeight = $window.height();
+    const currentPath = window.location.pathname;
     const $body = $('body');
     const $burger = $('#burger');
     const $menu = $('#menu');
@@ -9,6 +10,8 @@ $(document).ready(function () {
     const $mobileMenu = $('#mobile-menu');
     const $lazyElements = $('.lazy-bg');
     const $toTop = $('.to-top');
+    const $headerMenuLink = $('.header__menu-link');
+    const $headerMenuItem = $('.header__menu-item');
 
     let scrollTimeout;
     let throttleTimer = null;
@@ -147,6 +150,18 @@ $(document).ready(function () {
     }
 
     $(window).on('scroll resize load', checkFadeInVisibility);
+
+    // =======================================
+    // Визначення поточної сторінки для header
+    // =======================================
+    $headerMenuLink.each(function () {
+        const linkPath = $(this).attr('href');
+
+        if (linkPath === currentPath) {
+            $headerMenuItem.removeClass('active');
+            $(this).closest($headerMenuItem).addClass('active');
+        }
+    });
 
     // ================
     // Мобільне меню
