@@ -6,19 +6,19 @@
 
         &::before {
             content: '';
-            background-image: url('../img/global/animation.svg');
+            background-image: url('../img/global/global_animation.svg');
             background-position: center;
             background-repeat: no-repeat;
             background-size: contain;
             position: absolute;
             left: -35px;
             top: -120px;
-            width: 200px;
-            height: 129px;
+            width: 166px;
+            height: 222px;
             z-index: -1;
             opacity: .4;
             overflow-y: visible;
-            transform: scaleX(-1) rotate(45deg);
+            transform: scaleX(-1);
             pointer-events: none;
 
             @media (min-width: 1024px) {
@@ -43,6 +43,26 @@
             padding-right: 80px;
             gap: 48px;
             margin-bottom: 103px;
+            overflow-x: clip;
+            overflow-y: visible;
+
+            &::after {
+                content: '';
+                background-image: url('../img/global/global_animation.svg');
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: contain;
+                position: absolute;
+                right: 0;
+                bottom: -305px;
+                width: 450px;
+                height: 450px;
+                z-index: -1;
+                opacity: .4;
+                overflow-y: visible;
+                transform: rotate(60deg);
+                pointer-events: none;
+            }
 
             &-btn {
                 display: none;

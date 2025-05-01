@@ -7,18 +7,18 @@
 
         &::before {
             content: '';
-            background-image: url('../img/global/animation.svg');
+            background-image: url('../img/global/global_animation.svg');
             background-position: center;
             background-repeat: no-repeat;
             background-size: contain;
             position: absolute;
-            right: -35px;
-            top: -60px;
-            width: 200px;
-            height: 129px;
+            right: -10px;
+            top: -105px;
+            width: 166px;
+            height: 222px;
             z-index: -1;
             opacity: .4;
-            transform: rotate(45deg);
+            transform: rotate(-60deg);
             pointer-events: none;
 
             @media (min-width: 1024px) {
@@ -32,6 +32,24 @@
             margin-bottom: 103px;
             padding-left: 80px;
             padding-right: 80px;
+
+            &::after {
+                content: '';
+                background-image: url('../img/global/global_animation.svg');
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: contain;
+                position: absolute;
+                left: 20%;
+                bottom: -305px;
+                width: 450px;
+                height: 450px;
+                z-index: -1;
+                opacity: .4;
+                overflow-y: visible;
+                transform: scaleX(1) translateX(120px) rotate(-45deg);
+                pointer-events: none;
+            }
 
             &-title {
                 @include font(32);
@@ -70,7 +88,7 @@
             border-radius: 40px;
             border: 1px solid var(--color--white);
             background-color: transparent;
-            transition: background-color .4s ease, color .4s ease, border .4s ease;
+            transition: background-color .4s ease, border-color .4s ease, color .4s ease, border .4s ease;
 
             @media (min-width: 1024px) {
                 @include font(16);
@@ -78,6 +96,7 @@
 
                 &:hover {
                     cursor: pointer;
+                    border-color: var(--color--light-grey);
                 }
             }
 
@@ -96,6 +115,7 @@
 
                 &-btn {
                     display: flex;
+                    transition: all .4s ease-in-out;
                 }
             }
 
@@ -122,95 +142,114 @@
                     flex-grow: 0;
                     flex-shrink: 1;
                     min-width: calc(100% / 3 - 16px);
-        }
+                }
 
-        &-img {
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: contain;
-            width: 60.8vw;
-            height: 43vw;
-            border-radius: 20px;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+                &-img {
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    background-size: contain;
+                    width: 60.8vw;
+                    height: 43vw;
+                    border-radius: 20px;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
 
-            @media (min-width: 1024px) {
-                width: 24.306vw;
-                height: 16.667vw;
-                max-width: 350px;
-                max-height: 240px;
+                    @media (min-width: 1024px) {
+                        width: 24.306vw;
+                        height: 16.667vw;
+                        max-width: 350px;
+                        max-height: 240px;
+                    }
+                }
+            }
+
+            &-nav {
+                top: 50%;
+                border: none;
+                z-index: 2;
+                height: 20px;
+                width: 20px;
+                border-radius: 50%;
+                background-repeat: no-repeat;
+                background-size: 6px 9px;
+                background-image: url('../img/icons/icon_slider_btn.svg');
+
+                @media (min-width: 1024px) {
+                    &.disabled {
+                        filter: brightness(.4);
+                        pointer-events: none;
+                    }
+                }
+
+                &--prev {
+                    left: 0;
+                    transform: translateY(-50%);
+                    background-position: 6.2px 5.4px;
+
+                    @media (min-width: 1024px) {
+                        left: 24px;
+                        transform: translateY(calc(-50% + 24px)) scale(1.6);
+                    }
+                }
+
+                &--next {
+                    right: 16px;
+                    transform: translateY(-50%) rotate(180deg);
+                    background-position: 6.2px 5.8px;
+
+                    @media (min-width: 1024px) {
+                        right: 42px;
+                        transform: translateY(calc(-50% + 24px)) rotate(180deg) scale(1.6);
+                        background-position: 6.2px 5.8px;
+                    }
+                }
+            }
+
+            &-dots {
+                button {
+                    width: 12px;
+                    height: 12px;
+                    border-radius: 50%;
+                    background-color: var(--color--light-grey);
+                    border: none;
+
+                    &.active {
+                        background: var(--color--white);
+                    }
+                }
+            }
+
+            &-bg {
+                height: 48.8vw;
+                width: 48.8vw;
+                border-radius: 50%;
+
+                @media (min-width: 1024px) {
+                    width: 20.139vw;
+                    height: 20.139vw;
+                    max-width: 290px;
+                    max-height: 290px;
+                }
+            }
+
+            &-link {
+                width: 32px;
+                height: 32px;
+                border-radius: 50%;
+                transition: transform .4s ease-in-out, background-color .4s ease-in-out;
+
+                @media (min-width: 1024px) {
+                    &-img {
+                        transition: all .4s ease-in-out;
+                    }
+
+                    &:hover {
+                        transform: scale(1.1);
+                        background-color: var(--color--green);
+                    }
+                }
             }
         }
     }
-
-    &-nav {
-        top: 50%;
-        border: none;
-        z-index: 2;
-        height: 20px;
-        width: 20px;
-        border-radius: 50%;
-        background-repeat: no-repeat;
-        background-size: 6px 9px;
-        background-image: url('../img/icons/icon_slider_btn.svg');
-
-        &--prev {
-            left: 0;
-            transform: translateY(-50%);
-            background-position: 6.2px 5.4px;
-
-            @media (min-width: 1024px) {
-                left: 24px;
-                transform: translateY(calc(-50% + 24px)) scale(1.6);
-            }
-        }
-
-        &--next {
-            right: 16px;
-            transform: translateY(-50%) rotate(180deg);
-            background-position: 6.2px 5.8px;
-
-            @media (min-width: 1024px) {
-                right: 42px;
-                transform: translateY(calc(-50% + 24px)) rotate(180deg) scale(1.6);
-                background-position: 6.2px 5.8px;
-            }
-        }
-    }
-
-    &-dots {
-        button {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background-color: var(--color--light-grey);
-            border: none;
-
-            &.active {
-                background: var(--color--white);
-            }
-        }
-    }
-
-    &-bg {
-        height: 48.8vw;
-        width: 48.8vw;
-        border-radius: 50%;
-
-        @media (min-width: 1024px) {
-            width: 20.139vw;
-            height: 20.139vw;
-            max-width: 290px;
-            max-height: 290px;
-        }
-    }
-
-    &-link {
-        width: 32px;
-        height: 32px;
-        border-radius: 50%;
-    }
-}
-}
 }

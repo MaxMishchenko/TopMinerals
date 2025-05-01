@@ -52,19 +52,19 @@
 
     &::before {
         content: '';
-        background-image: url('../img/global/animation.svg');
+        background-image: url('../img/global/global_animation.svg');
         background-position: center;
         background-repeat: no-repeat;
         background-size: contain;
         position: absolute;
-        left: -35px;
-        top: -120px;
-        width: 200px;
-        height: 129px;
+        left: -20px;
+        top: -140px;
+        width: 166px;
+        height: 222px;
         z-index: -1;
         opacity: .4;
         overflow-y: visible;
-        transform: scaleX(-1) rotate(25deg);
+        transform: scaleX(-1) rotate(-60deg);
         pointer-events: none;
 
         @media (min-width: 1024px) {

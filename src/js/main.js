@@ -4,6 +4,8 @@ $(document).ready(function () {
     const $dotsContainer = $('.main__products-carousel-dots');
     const $buttonsNav = $('.main__products-carousel-nav');
     const $carouselTrack = $('.main__hero-category-slider-track');
+    const $prevBtn = $('.main__products-carousel-nav--prev');
+    const $nextBtn = $('.main__products-carousel-nav--next');
     const $slides = $('.main__hero-category-slider-slide');
     const slideGap = 16;
 
@@ -36,7 +38,7 @@ $(document).ready(function () {
             $track.css('transform', '');
             $dotsContainer.empty();
             $buttonsNav.hide();
-
+            $prevBtn.add($nextBtn).addClass('disabled');
             return;
         }
 
@@ -44,6 +46,21 @@ $(document).ready(function () {
         currentIndex = Math.min(currentIndex, totalPages - 1);
         updateTrackPosition(slidesToShow);
         updateDots(totalPages);
+        updateNavButtons(totalPages);
+    }
+
+    function updateNavButtons(totalPages) {
+        if (currentIndex <= 0) {
+            $prevBtn.addClass('disabled');
+        } else {
+            $prevBtn.removeClass('disabled');
+        }
+
+        if (currentIndex >= totalPages - 1) {
+            $nextBtn.addClass('disabled');
+        } else {
+            $nextBtn.removeClass('disabled');
+        }
     }
 
     // =======================

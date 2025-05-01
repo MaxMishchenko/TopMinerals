@@ -50,14 +50,16 @@ $(document).ready(function () {
 
     function handleToTopVisibility() {
         if ($window.scrollTop() > 400) {
-            if (!$toTop.is(':visible')) $toTop.fadeInFlex(300);
+            if (!$toTop.is(':visible')) $toTop.fadeInFlex(200);
         } else {
-            if ($toTop.is(':visible')) $toTop.fadeOutFlex(300);
+            if ($toTop.is(':visible')) $toTop.fadeOutFlex(200);
         }
 
-        $toTop.addClass('scrolling');
-        clearTimeout(scrollTimeout);
-        scrollTimeout = setTimeout(() => $toTop.removeClass('scrolling'), 200);
+        if (window.innerWidth < 1024) {
+            $toTop.addClass('scrolling');
+            clearTimeout(scrollTimeout);
+            scrollTimeout = setTimeout(() => $toTop.removeClass('scrolling'), 200);
+        }
     }
 
     $toTop.click(function (e) {
@@ -112,9 +114,9 @@ $(document).ready(function () {
     $window.on('scroll resize', throttledLazyLoad);
     $(window).on('resize', updateHeader);
 
-    // ====================================
-    // Анімації .fadeInFlex та .fadeOutFlex
-    // ====================================
+    // ============================================
+    // Анімації появи та .fadeInFlex / .fadeOutFlex
+    // ============================================
     $.fn.fadeInFlex = function (duration = 400) {
         return this.css({display: 'flex', opacity: 0}).animate({opacity: 1}, duration);
     };
@@ -124,6 +126,27 @@ $(document).ready(function () {
             $(this).css('display', 'none');
         });
     };
+
+    function checkFadeInVisibility() {
+        const scrollTop = $(window).scrollTop();
+        const windowHeight = $(window).height();
+        const visibleElements = $('.fade--in:not(.visible)').filter(function () {
+            const $el = $(this);
+            const elTop = $el.offset().top;
+            const elBottom = elTop + $el.outerHeight();
+
+            return elTop < scrollTop + windowHeight && elBottom > scrollTop;
+        });
+
+        visibleElements.each(function (index) {
+            const $el = $(this);
+            setTimeout(() => {
+                $el.addClass('visible');
+            }, index * 400);
+        });
+    }
+
+    $(window).on('scroll resize load', checkFadeInVisibility);
 
     // =============
     // Мобільне меню
@@ -158,12 +181,27 @@ $(document).ready(function () {
 
     $menu.click(smoothMenuToggle);
 
+    $(window).on('resize', function () {
+        if ($(window).width() >= 1024) {
+            $burger.removeClass('active');
+            $mobileMenu.removeClass('active');
+            $body.removeClass('lock');
+
+            if ($submenu.hasClass('visible')) {
+                smoothMenuToggle();
+                $menuChevron.removeClass('active');
+            }
+        }
+    });
+
     // =============
     // Ініціалізація
     // =============
     updateHeader();
     checkHeaderPosition();
     lazyLoadBackground();
+    checkFadeInVisibility();
+    handleToTopVisibility();
 
     $window.on('scroll', function () {
         checkHeaderPosition();

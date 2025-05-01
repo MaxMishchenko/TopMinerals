@@ -7,19 +7,19 @@
 
         &::before {
             content: '';
-            background-image: url('../img/global/animation.svg');
+            background-image: url('../img/global/global_animation.svg');
             background-position: center;
             background-repeat: no-repeat;
             background-size: contain;
             position: absolute;
-            right: -35px;
-            top: 60px;
-            width: 200px;
-            height: 129px;
+            right: -20px;
+            top: 15px;
+            width: 162px;
+            height: 222px;
             z-index: -1;
             opacity: .4;
             overflow-y: visible;
-            transform: rotate(40deg);
+            transform: rotate(-45deg);
             pointer-events: none;
 
             @media (min-width: 1024px) {
@@ -35,6 +35,7 @@
             max-width: 1440px;
             justify-content: space-between;
             margin-bottom: 64px;
+            overflow-x: clip;
 
             &-title {
                 @include font(56);
@@ -54,10 +55,33 @@
                 gap: 0;
                 display: flex;
                 flex-direction: column;
+
+                @media (min-width: 1024px) {
+                    position: relative;
+
+                    &::before {
+                        content: '';
+                        background-image: url('../img/global/global_animation.svg');
+                        background-position: center;
+                        background-repeat: no-repeat;
+                        background-size: contain;
+                        position: absolute;
+                        right: 0;
+                        bottom: -305px;
+                        width: 450px;
+                        height: 450px;
+                        z-index: -1;
+                        opacity: .4;
+                        overflow-y: visible;
+                        transform: rotate(60deg);
+                        pointer-events: none;
+                    }
+                }
             }
 
             &-btn {
                 max-width: 245px;
+                transition: all .4s ease-in-out;
             }
 
             &-slider {
@@ -195,6 +219,11 @@
                 &-btn {
                     border-radius: 24px;
                     width: 100%;
+                    transition: background-color .4s ease-in-out;
+
+                    &:hover {
+                        background-color: var(--color--green);
+                    }
                 }
             }
 
@@ -233,6 +262,12 @@
                 border: none;
                 background-color: transparent;
                 z-index: 2;
+                transition: transform .4s ease;
+
+                &:hover {
+                    transform-origin: center;
+                    transform: scale(1.1);
+                }
 
                 &--prev {
                     left: 10px;
