@@ -65,10 +65,15 @@
 
             &-text {
                 @include font(20);
+                padding-right: 20px;
             }
 
             &-tab {
                 cursor: pointer;
+            }
+
+            &-divider {
+                display: none;
             }
         }
 
