@@ -7,20 +7,60 @@
 
         &::before {
             content: '';
-            background-image: url('../img/global/animation.svg');
+            background-image: url('../img/global/global_animation.svg');
             background-position: center;
             background-repeat: no-repeat;
             background-size: contain;
             position: absolute;
-            right: -35px;
-            top: 60px;
-            width: 200px;
-            height: 129px;
+            right: -5px;
+            top: 0;
+            width: 162px;
+            height: 222px;
             z-index: -1;
             opacity: .4;
             overflow-y: visible;
-            transform: rotate(40deg);
+            transform: rotate(-80deg);
             pointer-events: none;
+
+            @media (min-width: 1024px) {
+                display: none;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            margin-right: 0;
+            padding-right: 80px;
+            padding-left: 80px;
+            padding-top: 150px;
+            gap: 42px;
+            margin-bottom: 56px;
+
+            &::after {
+                content: '';
+                background-image: url('../img/global/global_animation.svg');
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: contain;
+                position: absolute;
+                right: -35px;
+                top: -65px;
+                width: 450px;
+                height: 450px;
+                z-index: -1;
+                opacity: .4;
+                overflow-y: visible;
+                transform: rotate(140deg);
+                pointer-events: none;
+            }
+
+            &-title {
+                @include font(56);
+            }
+        }
+
+        @media (min-width: 1440px) {
+            padding-right: 120px;
+            padding-left: 120px;
         }
 
         &-img {
@@ -30,6 +70,10 @@
             width: 100%;
             height: 53.87vw;
             border-radius: 20px;
+
+            @media (min-width: 1024px) {
+                max-height: 400px;
+            }
         }
     }
 }

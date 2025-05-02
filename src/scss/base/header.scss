@@ -143,8 +143,12 @@
         &__menu {
             display: flex;
 
+            &-link {
+                transition: all .4s ease-in-out;
+            }
+
             &-dropdown {
-                bottom: -64px;
+                bottom: -66px;
                 left: 0;
                 width: 127.5px;
                 opacity: 0;
@@ -195,6 +199,18 @@
 
                     &:hover {
                         background-color: transparent;
+                    }
+
+                    &.active {
+                        background-color: var(--color--green);
+
+                        .header__menu-link {
+                            color: var(--color--black);
+                        }
+
+                        .header__menu-item-img {
+                            filter: brightness(0);
+                        }
                     }
                 }
 

@@ -1,7 +1,86 @@
 .about {
     &__products {
+        &::before {
+            content: '';
+            background-image: url('../img/global/global_animation.svg');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+            position: absolute;
+            right: 0;
+            top: -170px;
+            width: 166px;
+            height: 222px;
+            z-index: -1;
+            opacity: .4;
+            pointer-events: none;
+            transform: rotate(-80deg);
+
+            @media (min-width: 1024px) {
+                display: none;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            gap: 64px;
+            padding-left: 80px;
+            padding-right: 80px;
+            margin-bottom: 264px;
+
+            &::after {
+                content: '';
+                background-image: url('../img/global/global_animation.svg');
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: contain;
+                position: absolute;
+                right: 70px;
+                bottom: -300px;
+                width: 450px;
+                height: 450px;
+                z-index: -1;
+                opacity: .4;
+                overflow-y: visible;
+                transform: scaleX(1) translateX(120px) rotate(-120deg);
+                pointer-events: none;
+            }
+
+            &-title {
+                @include font(24);
+            }
+
+            &-content {
+                gap: 24px;
+            }
+
+            &-heading {
+                @include font(32);
+            }
+
+            &-btn {
+                max-width: 266px;
+            }
+
+            &-text {
+                @include font(20);
+            }
+
+            &-tab {
+                cursor: pointer;
+            }
+        }
+
+        @media (min-width: 1440px) {
+            padding-left: 120px;
+            padding-right: 120px;
+        }
+
         &-list {
             border-radius: 20px;
+
+            @media (min-width: 1024px) {
+                padding: 32px;
+            }
         }
 
         &-img {
@@ -27,6 +106,11 @@
             right: 0;
             bottom: 0;
             z-index: 2;
+
+            @media (min-width: 1024px) {
+                width: 48px;
+                height: 48px;
+            }
         }
     }
 }

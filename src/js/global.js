@@ -105,9 +105,9 @@ $(document).ready(function () {
         });
     };
 
-    // ===========================
-    // Саморобна реалізація throttle
-    // ===========================
+    // ========
+    // Throttle
+    // ========
     function throttledLazyLoad() {
         if (throttleTimer) return;
 
@@ -160,6 +160,11 @@ $(document).ready(function () {
         if (linkPath === currentPath) {
             $headerMenuItem.removeClass('active');
             $(this).closest($headerMenuItem).addClass('active');
+        }
+
+        if (currentPath.includes('/TopMinerals/about-us.html')) {
+            $headerMenuItem.removeClass('active');
+            $headerMenuItem.filter('[data-link="about-us"]').addClass('active');
         }
     });
 
