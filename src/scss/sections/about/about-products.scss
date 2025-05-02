@@ -1,5 +1,7 @@
 .about {
     &__products {
+        overflow-x: clip;
+
         &::before {
             content: '';
             background-image: url('../img/global/global_animation.svg');
