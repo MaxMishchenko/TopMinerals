@@ -5,6 +5,26 @@
             margin-bottom: 64px;
             padding-left: 80px;
             padding-right: 80px;
+            position: relative;
+            overflow-x: clip;
+
+            &::after {
+                content: '';
+                background-image: url('../img/global/global_animation.svg');
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: contain;
+                position: absolute;
+                right: -40px;
+                top: -240px;
+                width: 450px;
+                height: 450px;
+                z-index: -1;
+                opacity: .4;
+                overflow-y: visible;
+                transform: rotate(-120deg);
+                pointer-events: none;
+            }
 
             &-title {
                 @include font(32);

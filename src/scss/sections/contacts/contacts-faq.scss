@@ -43,14 +43,14 @@
                 background-repeat: no-repeat;
                 background-size: contain;
                 position: absolute;
-                left: 10%;
+                right: 40%;
                 top: -220px;
                 width: 450px;
                 height: 450px;
                 z-index: -1;
                 opacity: .4;
                 overflow-y: visible;
-                transform: scaleX(1) translateX(120px) rotate(-45deg);
+                transform: scaleX(1) translateX(120px) rotate(-60deg);
                 pointer-events: none;
             }
 
