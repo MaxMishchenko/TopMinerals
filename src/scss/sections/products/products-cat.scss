@@ -1,17 +1,115 @@
 .products {
     &__cat {
-        &-link {
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 24px;
+
+        @media (min-width: 1024px) {
+            padding: 30px 80px;
+            margin-bottom: 56px;
+        }
+
+        @media (min-width: 1440px) {
+            padding: 30px 120px;
         }
 
         &-card {
             border-radius: 20px;
+            width: 100%;
+
+            @media (min-width: 1024px) {
+                border-radius: 30px;
+                max-height: 236px;
+                align-items: center;
+                position: relative;
+
+                &:nth-child(-n+3) {
+                    width: calc((100% - 48px) / 3);
+                }
+
+                &:nth-child(n+4) {
+                    width: calc((100% - 24px) / 2);
+                }
+
+                &:nth-child(1) {
+                    background-color: var(--color--white);
+
+                    .products__cat-card-title {
+                        color: var(--color--black);
+                    }
+
+                    .products__cat-link-img {
+                        filter: brightness(30);
+                    }
+                }
+
+                &:nth-child(3) {
+                    background-color: var(--color--black);
+
+                    .products__cat-card-title {
+                        color: var(--color--white);
+                    }
+
+                    .products__cat-link {
+                        background-color: var(--color--white);
+                    }
+
+                    .products__cat-link-img {
+                        filter: brightness(0);
+                    }
+                }
+
+                &:nth-child(4) {
+                    .products__cat-link {
+                        background-color: var(--color--white);
+                    }
+
+                    .products__cat-link-img {
+                        filter: brightness(0);
+                    }
+                }
+
+                &:nth-child(5) {
+                    background-color: var(--color--white);
+                }
+
+                &-title {
+                    @include font(24);
+                }
+            }
 
             &-img {
                 width: 53.335vw;
                 height: 36.8vw;
+                
+                @media (min-width: 1024px) {
+                    max-width: 178px;
+                    max-height: 123px;
+                }
+            }
+        }
+
+        &-link {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+
+            @media (min-width: 1024px) {
+                width: 48px;
+                height: 48px;
+                position: absolute;
+                right: 24px;
+                bottom: 32px;
+                z-index: 2;
+
+                &:nth-of-type(1) {
+                    background-color: var(--color--black);
+                }
+
+                &-img {
+                    width: 20px;
+                    height: 18px;
+                }
             }
         }
     }
