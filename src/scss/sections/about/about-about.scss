@@ -65,14 +65,54 @@
 
         &-img {
             background-repeat: no-repeat;
-            background-position: center;
+            background-position-x: 30%;
             background-size: cover;
             width: 100%;
-            height: 53.87vw;
+            height: 91.47vw;
+            max-height: 519px;
             border-radius: 20px;
 
             @media (min-width: 1024px) {
-                max-height: 400px;
+                max-height: 519px;
+            }
+
+            &-logo {
+                top: 39px;
+                left: 38px;
+                z-index: 2;
+                max-width: 107px;
+                max-height: 42px;
+                width: 29vw;
+                height: 11.2vw;
+
+                @media (min-width: 1024px) {
+                    width: 19vw;
+                    max-width: 273px;
+                    height: 7.37vw;
+                    max-height: 106px;
+                    top: 58px;
+                    left: 53px;
+                }
+            }
+
+            &-product {
+                bottom: 14px;
+                right: 18px;
+                z-index: 2;
+                max-width: 225px;
+                max-height: 201px;
+                width: 60vw;
+                height: 54vw;
+
+                @media (min-width: 1024px) {
+                    max-width: 372px;
+                    width: 25.84vw;
+                    max-height: 333px;
+                    height: 23.13vw;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    right: 115px;
+                }
             }
         }
     }
