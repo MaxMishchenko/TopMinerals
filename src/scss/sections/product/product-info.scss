@@ -1,5 +1,122 @@
 .product {
     &__info {
+        overflow-y: visible;
+        overflow-x: clip;
+        margin-right: -16px;
+        padding-right: 16px;
 
+        &::before {
+            content: '';
+            background-image: url('../img/global/global_animation.svg');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+            position: absolute;
+            right: -16px;
+            top: -135px;
+            width: 166px;
+            height: 222px;
+            z-index: -1;
+            opacity: .4;
+            transform: rotate(-60deg);
+            pointer-events: none;
+
+            @media (min-width: 1024px) {
+                display: none;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            margin-right: 0;
+            padding-right: 80px;
+            padding-left: 80px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 64px;
+
+            &::after {
+                content: '';
+                background-image: url('../img/global/global_animation.svg');
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: contain;
+                position: absolute;
+                left: 38%;
+                bottom: -220px;
+                width: 450px;
+                height: 450px;
+                z-index: -1;
+                opacity: .4;
+                overflow-y: visible;
+                transform: scaleX(-1) translateX(120px) rotate(-110deg);
+                pointer-events: none;
+            }
+
+            &-link {
+                display: flex;
+                @include font(14);
+                max-width: 250px;
+                transition: .4s ease-in-out;
+            }
+
+            &-wrapper {
+                flex-shrink: 0;
+            }
+
+            &-title {
+                @include font(32);
+            }
+
+            &-list {
+                gap: 16px;
+
+                &-link {
+                    transition: .4s ease-in-out;
+
+                    &:hover {
+                        color: var(--color--pale-grey);
+                    }
+                }
+            }
+
+            &-btn {
+                display: none;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            padding-right: 120px;
+            padding-left: 120px;
+        }
+
+        &-text {
+            max-width: 400px;
+
+            @media (min-width: 1024px) {
+                @include font(20);
+                max-width: 420px;
+            }
+        }
+
+        &-img {
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            width: 100%;
+            height: 92vw;
+            border-radius: 20px;
+
+            @media (min-width: 1024px) {
+                max-height: 384px;
+                max-width: 488px;
+            }
+        }
+
+        &-item {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+        }
     }
 }

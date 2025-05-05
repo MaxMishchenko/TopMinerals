@@ -6,34 +6,94 @@
 
         &::before {
             content: '';
-            background-image: url('../img/global/animation.svg');
+            background-image: url('../img/global/global_animation.svg');
             background-position: center;
             background-repeat: no-repeat;
             background-size: contain;
             position: absolute;
             bottom: 125px;
             left: -34px;
-            width: 200px;
-            height: 129px;
+            width: 162px;
+            height: 222px;
             z-index: -1;
             opacity: .4;
             overflow-y: visible;
-            transform: scaleX(-1) rotate(-25deg);
+            transform: scaleX(-1) rotate(-130deg);
             pointer-events: none;
+
+            @media (min-width: 1024px) {
+                display: none;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            padding-top: 150px;
+            margin-left: 0;
+            padding-left: 80px;
+            padding-right: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 64px;
+            margin-bottom: 64px;
+
+            &-container {
+                display: flex;
+                border-radius: 50%;
+                width: 32.431vw;
+                height: 32.431vw;
+                max-width: 467px;
+                max-height: 467px;
+            }
+
+            &-title {
+                @include font(56);
+            }
+
+            &-subtitle {
+                @include font(24);
+            }
+
+            &-text {
+                @include font(20);
+                max-width: 390px;
+            }
+
+            &-content {
+                max-width: 50%;
+            }
+
+            &-btn {
+                max-width: fit-content;
+            }
+        }
+
+        @media (min-width: 1440px) {
+            padding-left: 120px;
+            padding-right: 120px;
         }
 
         &-wrapper {
             border-radius: 50%;
-            width: 276px;
-            height: 276px;
+            width: 73.6vw;
+            height: 73.6vw;
+
+            @media (min-width: 1024px) {
+                display: none;
+            }
         }
 
         &-img {
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 343px;
+            width: 91.47vw;
             height: auto;
+
+            @media (min-width: 1024px) {
+                width: 39.931vw;
+                max-width: 575px;
+            }
         }
     }
 }
