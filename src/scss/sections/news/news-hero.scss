@@ -1,0 +1,214 @@
+.news {
+    &__hero {
+        overflow: hidden;
+        padding-top: 100px;
+
+        &::before {
+            content: '';
+            background-image: url('../img/global/global_animation.svg');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+            position: absolute;
+            right: 0;
+            top: 30px;
+            width: 162px;
+            height: 222px;
+            z-index: -1;
+            opacity: .4;
+            overflow-y: visible;
+            transform: rotate(-50deg);
+            pointer-events: none;
+
+            @media (min-width: 1024px) {
+                width: 450px;
+                height: 450px;
+                top: -80px;
+                transform: rotate(-115deg);
+            }
+        }
+
+        &-card {
+            &:nth-child(4n) {
+                .news__hero-image-wrapper {
+                    position: relative;
+
+                    &::before {
+                        content: '';
+                        background-image: url('../img/global/global_animation.svg');
+                        background-position: center;
+                        background-repeat: no-repeat;
+                        background-size: contain;
+                        position: absolute;
+                        right: 0;
+                        bottom: -130px;
+                        width: 162px;
+                        height: 222px;
+                        z-index: -1;
+                        opacity: .4;
+                        overflow-y: visible;
+                        transform: rotate(-60deg);
+                        pointer-events: none;
+
+                        @media (min-width: 1024px) {
+                            display: none;
+                        }
+                    }
+                }
+            }
+
+            @media (min-width: 1024px) {
+                width: 100%;
+                margin-bottom: 120px;
+
+                &:nth-child(-n+2) {
+                    width: calc(50% - 10px);
+
+                    .news__hero-link {
+                        width: 48px;
+                        height: 48px;
+
+                        &:hover {
+                            .news__hero-link-icon {
+                                transform: translate(5px, -5px);
+                            }
+                        }
+
+                        &-icon {
+                            width: 28px;
+                            height: 28px;
+                        }
+                    }
+
+                    .news__hero-img {
+                        max-height: 390px;
+                    }
+                }
+
+                &:nth-child(n+3) {
+                    width: calc(33.333% - 14px);
+
+                    .news__hero-img {
+                        max-height: 318px;
+                    }
+                }
+
+                &:nth-child(8n + 4) {
+                    .news__hero-image-wrapper {
+                        position: relative;
+
+                        &::after {
+                            content: '';
+                            background-image: url('../img/global/global_animation.svg');
+                            background-position: center;
+                            background-repeat: no-repeat;
+                            background-size: contain;
+                            position: absolute;
+                            right: -50px;
+                            top: -240px;
+                            width: 450px;
+                            height: 450px;
+                            z-index: -1;
+                            opacity: .4;
+                            overflow-y: visible;
+                            transform: rotate(-60deg);
+                            pointer-events: none;
+                        }
+                    }
+                }
+
+                &:nth-child(8n + 6) {
+                    .news__hero-image-wrapper {
+                        position: relative;
+
+                        &::after {
+                            content: '';
+                            background-image: url('../img/global/global_animation.svg');
+                            background-position: center;
+                            background-repeat: no-repeat;
+                            background-size: contain;
+                            position: absolute;
+                            right: -50px;
+                            top: -240px;
+                            width: 450px;
+                            height: 450px;
+                            z-index: -1;
+                            opacity: .4;
+                            overflow-y: visible;
+                            transform: scaleX(-1) rotate(-40deg);
+                            pointer-events: none;
+                        }
+                    }
+                }
+            }
+        }
+
+        @media (min-width: 1024px) {
+            padding-top: 150px;
+            margin-right: 0;
+            padding-right: 80px;
+            padding-left: 80px;
+            gap: 120px;
+
+            &-wrapper {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 20px;
+            }
+
+            &-btn {
+                display: none;
+            }
+
+            &-title {
+                @include font(56);
+            }
+
+            &-heading {
+                @include font(20);
+            }
+        }
+
+        @media (min-width: 1440px) {
+            padding-right: 120px;
+            padding-left: 120px;
+        }
+
+        &-header {
+            width: calc(100% - 10px);
+        }
+
+        &-img {
+            border-radius: 20px;
+            width: 100%;
+            height: 67.2vw;
+            object-fit: cover;
+
+            &-wrapper {
+                border-radius: 20px;
+            }
+        }
+
+        &-link {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+
+            @media (min-width: 1024px) {
+                transition: all .4s ease-in-out;
+
+                &-icon {
+                    transition: all .4s ease-in-out;
+                }
+
+                &:hover {
+                    background-color: var(--color--white);
+
+                    .news__hero-link-icon {
+                        transform: translate(2px, -2px);
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,18 +1,12 @@
 <!doctype html>
 <html lang="uk">
 @include('partials/global/head.html')
-<title>Top Minerals</title>
+<title>Top Minerals - Новини</title>
 <body class="grid gap--64">
 @include('partials/global/header.html')
 
 <main class="main grid gap--64">
-    @include('partials/main/sections/section-hero.html')
-
-    @include('partials/main/sections/section-partner.html')
-
-    @include('partials/main/sections/section-products.html')
-
-    @include('partials/main/sections/section-contact.html')
+    @include('partials/news/sections/section-news.html')
 </main>
 
 @include('partials/global/footer.html')
@@ -21,6 +15,5 @@
 
 <script src="./js/jquery.js"></script>
 <script src="./js/global.js?v=1.2"></script>
-<script src="./js/main.js?v=1.2"></script>
 </body>
 </html>
