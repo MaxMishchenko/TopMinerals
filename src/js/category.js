@@ -12,7 +12,9 @@ $(document).ready(function () {
     // Визначення видимих слайдів
     // ==========================
     function getVisibleSlides() {
-        return $track.find('.category__products-carousel-slide').filter(':visible');
+        return $track.find('.category__products-carousel-slide').filter(function () {
+            return $(this).css('display') !== 'none';
+        });
     }
 
     // ===========================
@@ -82,8 +84,8 @@ $(document).ready(function () {
     // Ініціалізації слайдера
     // ======================
     function initSlider() {
-        const $slides = getVisibleSlides();
         updateSlidesToShow();
+        const $slides = getVisibleSlides();
         const totalPages = getTotalPages($slides);
 
         if ($slides.length <= slidesToShow) {
@@ -105,7 +107,6 @@ $(document).ready(function () {
     // Кнопки "Назад" та "Вперед"
     // ==========================
     $prevBtn.click(function () {
-        const $slides = getVisibleSlides();
         if (currentIndex > 0) {
             currentIndex--;
             initSlider();
@@ -158,7 +159,14 @@ $(document).ready(function () {
     // =================================
     // Ініціалізація слайдера на ресайзі
     // =================================
-    $(window).on('resize', initSlider);
+    $(window).on('resize', () => {
+        const oldSlidesToShow = slidesToShow;
+        updateSlidesToShow();
+        if (slidesToShow !== oldSlidesToShow) {
+            currentIndex = 0;
+        }
+        initSlider();
+    });
 
     // ================================
     // Початкова ініціалізація слайдера
