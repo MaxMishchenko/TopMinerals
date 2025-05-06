@@ -1,0 +1,81 @@
+.category {
+    &__compound {
+        overflow-x: clip;
+
+        &::before {
+            content: '';
+            background-image: url('../img/global/global_animation.svg');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+            position: absolute;
+            right: -16px;
+            bottom: -137px;
+            width: 166px;
+            height: 222px;
+            z-index: -1;
+            opacity: .4;
+            overflow-y: visible;
+            transform: rotate(-60deg);
+            pointer-events: none;
+
+            @media (min-width: 1024px) {
+                display: none;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            padding-left: 80px;
+            padding-right: 80px;
+            margin-bottom: 56px;
+            position: relative;
+
+            &::after {
+                content: '';
+                background-image: url('../img/global/global_animation.svg');
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: contain;
+                position: absolute;
+                left: 50%;
+                bottom: -305px;
+                width: 450px;
+                height: 450px;
+                z-index: -1;
+                opacity: .4;
+                overflow-y: visible;
+                transform: scaleX(1) translateX(-50%) rotate(75deg);
+                pointer-events: none;
+            }
+
+            &-title {
+                @include font(32);
+                margin-bottom: 32px;
+            }
+
+            &-wrapper {
+                display: flex;
+                gap: 20px;
+            }
+        }
+
+        @media (min-width: 1440px) {
+            padding-left: 120px;
+            padding-right: 120px;
+        }
+
+        &-card {
+            border-radius: 16px;
+
+            @media (min-width: 1024px) {
+                width: calc(100% / 4);
+                padding: 30px 16px;
+                gap: 20px;
+
+                &-title {
+                    @include font(20);
+                }
+            }
+        }
+    }
+}

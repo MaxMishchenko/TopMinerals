@@ -1,0 +1,161 @@
+.category {
+    &__products {
+        @media (min-width: 1024px) {
+            max-width: 1440px;
+            width: 100%;
+            margin-bottom: 56px;
+            padding-left: 80px;
+            padding-right: 80px;
+
+            &-wrapper {
+                gap: 48px;
+            }
+        }
+
+        @media (min-width: 1440px) {
+            padding-left: 120px;
+            padding-right: 120px;
+        }
+
+        &-carousel {
+            @media (min-width: 1024px) {
+                margin-left: 0;
+                margin-right: 0;
+                overflow-x: hidden;
+
+                &-btn {
+                    display: flex;
+                    transition: all .4s ease-in-out;
+                }
+            }
+
+            &-wrapper {
+                width: 76.27vw;
+                overflow: hidden;
+
+                @media (min-width: 1024px) {
+                    width: 100%;
+                }
+            }
+
+            &-track {
+                transition: transform .4s ease;
+                will-change: transform;
+            }
+
+            &-slide {
+                flex: 0 0 100%;
+                border-radius: 18px;
+
+                @media (min-width: 1024px) {
+                    max-width: 386px;
+                    flex-grow: 0;
+                    flex-shrink: 1;
+                    min-width: calc(100% / 3 - 16px);
+                }
+
+                &-img {
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    background-size: contain;
+                    width: 60.8vw;
+                    height: 43vw;
+                    border-radius: 20px;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+
+                    @media (min-width: 1024px) {
+                        width: 24.306vw;
+                        height: 16.667vw;
+                        max-width: 350px;
+                        max-height: 240px;
+                    }
+                }
+            }
+
+            &-nav {
+                top: 50%;
+                border: none;
+                z-index: 2;
+                height: 20px;
+                width: 20px;
+                border-radius: 50%;
+                background-repeat: no-repeat;
+                background-size: 6px 9px;
+                background-image: url('../img/icons/icon_slider_btn.svg');
+
+                @media (min-width: 1024px) {
+                    &.disabled {
+                        filter: brightness(.4);
+                        pointer-events: none;
+                    }
+                }
+
+                &--prev {
+                    left: 0;
+                    transform: translateY(-50%);
+                    background-position: 6.2px 5.4px;
+
+                    @media (min-width: 1024px) {
+                        left: -58px;
+                        transform: translateY(-50%) scale(1.6);
+                    }
+                }
+
+                &--next {
+                    right: 0;
+                    transform: translateY(-50%) rotate(180deg);
+                    background-position: 6.2px 5.8px;
+
+                    @media (min-width: 1024px) {
+                        right: -42px;
+                        transform: translateY(-50%) rotate(180deg) scale(1.6);
+                        background-position: 6.2px 5.8px;
+                    }
+                }
+            }
+
+            &-dots {
+                button {
+                    width: 12px;
+                    height: 12px;
+                    border-radius: 50%;
+                    background-color: var(--color--light-grey);
+                    border: none;
+
+                    &.active {
+                        background: var(--color--white);
+                    }
+                }
+            }
+
+            &-bg {
+                height: 48.8vw;
+                width: 48.8vw;
+                border-radius: 50%;
+
+                @media (min-width: 1024px) {
+                    width: 20.139vw;
+                    height: 20.139vw;
+                    max-width: 290px;
+                    max-height: 290px;
+                }
+            }
+
+            &-link {
+                width: 32px;
+                height: 32px;
+                border-radius: 50%;
+                transition: transform .4s ease-in-out, background-color .4s ease-in-out;
+
+                @media (min-width: 1024px) {
+                    &:hover {
+                        transform: scale(1.1);
+                        background-color: var(--color--green);
+                    }
+                }
+            }
+        }
+    }
+}

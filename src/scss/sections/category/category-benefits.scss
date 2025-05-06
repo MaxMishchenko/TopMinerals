@@ -1,0 +1,46 @@
+.category {
+    &__benefits {
+        @media (min-width: 1024px) {
+            padding-left: 80px;
+            padding-right: 80px;
+            margin-bottom: 56px;
+
+            &-title {
+                @include font(32);
+                margin-bottom: 40px;
+            }
+
+            &-list {
+                flex-direction: row;
+                flex-wrap: wrap;
+                gap: 20px;
+            }
+        }
+
+        @media (min-width: 1440px) {
+            padding-left: 120px;
+            padding-right: 120px;
+        }
+
+        &-item {
+            border-radius: 16px;
+            height: 79px;
+
+            @media (min-width: 1024px) {
+                background-color: var(--color--white);
+                @include font(20);
+
+                &:nth-child(1),
+                &:nth-child(2),
+                &:nth-child(3) {
+                    width: calc(100% / 3 - 20px);
+                }
+
+                &:nth-child(4),
+                &:nth-child(5) {
+                    width: calc(100% / 2 - 20px);
+                }
+            }
+        }
+    }
+}
