@@ -191,6 +191,12 @@ $(document).ready(function () {
     // ===========================
     // Обробка кліків по категорії
     // ===========================
+    function checkActiveCat() {
+        const selectedCat = $('.main__products-item.active').data('cat');
+
+        filterSlidesByCategory(selectedCat);
+    }
+
     function handleCategoryClick() {
         $productCat.removeClass('active');
         $(this).addClass('active');
@@ -274,6 +280,7 @@ $(document).ready(function () {
     // =============
     function init() {
         initSlider();
+        checkActiveCat();
         addSwipeSupport();
 
         $('.main__products-carousel-nav--prev').click(handlePrevClick);
