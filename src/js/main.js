@@ -195,6 +195,15 @@ $(document).ready(function () {
         const selectedCat = $('.main__products-item.active').data('cat');
 
         filterSlidesByCategory(selectedCat);
+
+        currentIndex = 0;
+        initSlider();
+
+        setTimeout(() => {
+            toggleSliderControls();
+        }, 0);
+
+        window.lazyLoadBackground();
     }
 
     function handleCategoryClick() {
@@ -206,6 +215,11 @@ $(document).ready(function () {
 
         currentIndex = 0;
         initSlider();
+
+        setTimeout(() => {
+            toggleSliderControls();
+        }, 0);
+
         window.lazyLoadBackground();
     }
 
@@ -219,6 +233,16 @@ $(document).ready(function () {
 
             $el.toggleClass('hidden', !match);
         });
+    }
+
+    function toggleSliderControls() {
+        const visibleSlides = $('[data-slide]:not(.hidden)').length;
+
+        if (visibleSlides > 3) {
+            $('.main__hero-category-slider-button, .main__hero-category-dots').show();
+        } else {
+            $('.main__hero-category-slider-button, .main__hero-category-dots').hide();
+        }
     }
 
     // ======================================
@@ -279,7 +303,6 @@ $(document).ready(function () {
     // Ініціалізація
     // =============
     function init() {
-        initSlider();
         checkActiveCat();
         addSwipeSupport();
 
