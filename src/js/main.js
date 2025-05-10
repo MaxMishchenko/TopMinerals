@@ -199,10 +199,6 @@ $(document).ready(function () {
         currentIndex = 0;
         initSlider();
 
-        setTimeout(() => {
-            toggleSliderControls();
-        }, 0);
-
         window.lazyLoadBackground();
     }
 
@@ -215,10 +211,6 @@ $(document).ready(function () {
 
         currentIndex = 0;
         initSlider();
-
-        setTimeout(() => {
-            toggleSliderControls();
-        }, 0);
 
         window.lazyLoadBackground();
     }
