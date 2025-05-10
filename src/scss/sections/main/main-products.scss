@@ -176,8 +176,9 @@
                     content: '';
                     position: absolute;
                     display: block;
-                    height: 50vw;
-                    width: 10vw;
+                    height: 100vw;
+                    max-height: 64vw;
+                    width: 15vw;
                 }
 
                 @media (min-width: 1024px) {
