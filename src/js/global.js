@@ -162,7 +162,7 @@ $(document).ready(function () {
             $(this).closest($headerMenuItem).addClass('active');
         }
 
-        if (currentPath.includes('/TopMinerals/about-us.html')) {
+        if (currentPath.includes('/about/')) {
             $headerMenuItem.removeClass('active');
             $headerMenuItem.filter('[data-link="about-us"]').addClass('active');
         }
